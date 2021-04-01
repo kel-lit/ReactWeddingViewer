@@ -1,12 +1,19 @@
 import React 	from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import Home		from './pages/Home';
 
 import styles from './index.module.scss';
 
-const title = "Hello, World!"
+function App() {
+	return (
+		<>
+			<Home />
+		</>
+	)
+}
 
 ReactDOM.render((
-	<div className={ styles.hello }>{ title }</div>
+	<App />
 ), document.getElementById('root'));
 
 module.hot.accept();

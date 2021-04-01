@@ -7,7 +7,7 @@ module.exports = (env, args) => {
 
 	return {
 		entry: './src/index.jsx',
-		...options(),
+		...(options()),
 		module: {
 			rules: [
 				{
@@ -37,11 +37,6 @@ module.exports = (env, args) => {
 			extensions: ['*', '.js', '.jsx'],
 		},
 		plugins: plugins(),
-		devServer: {
-			publicPath: '/',
-			contentBase: path.resolve(__dirname, './dist'),
-			hot: true,
-		},
 		output: {
 			filename: '[name].bundle.js',
 			path: path.resolve(__dirname, 'dist'),
@@ -80,6 +75,15 @@ const options = () => {
 			historyApiFallback: true,
 			openPage: '',
 			hot: true,
+			proxy: {
+			 	'/api/**' : {
+			 		target: 'http://localhost:3000',
+			 		secure: false,
+			 	}
+			},
+			allowedHosts: [
+				'localhost',
+			]
 		},
 	};
 
