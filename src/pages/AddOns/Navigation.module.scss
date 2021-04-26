@@ -1,0 +1,30 @@
+.navDiv {
+	width: 100%;
+	height: 2rem;
+	background-color: yellowgreen;
+}
+
+// Items
+.itemDiv {
+	position: absolute;
+	margin-top: 2rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(153, 205, 50, 0.693);
+}
+
+.navItem {
+	max-width: 20%;
+	text-align: center;
+	padding: 0.8rem;
+}
+
+// Menu
+.screenMask {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(black, $alpha: 0.2);
+	z-index: 1;
+}

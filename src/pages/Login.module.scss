@@ -1,0 +1,33 @@
+.loginCard {
+	height: 50vh;
+	width: 90vw;
+	transform: translateY(25vh);
+	margin: auto;
+	background-color: rgba($color: grey, $alpha: 0.5);
+	display: flex;
+
+}
+
+.loginTitle {
+	position: absolute;
+	text-align: center;
+}
+
+.loginForm {
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.loginLabel {
+
+}
+
+.loginInput {
+	all: unset;
+	background-color: white;
+	border: 1px rgb(99, 99, 99) solid;
+	border-radius: 2px;
+	text-align: center;
+	width: 50%;
+}

@@ -1,0 +1,37 @@
+$burger-width: 1.8rem;
+
+.menuDiv {
+	position: absolute;
+	height: 1.8rem;
+	width: 1.8rem;
+	top: 0.1rem;
+	right: 0.1rem;
+	display: flex;
+	align-items: center;
+}
+
+.menuIcon {
+	height: 2px;
+	width: $burger-width;
+	margin: 0 auto;
+	background-color: black;
+	right: 0.2rem;
+	
+	&:before {
+		display: block;
+		transform: translateY(-0.5rem);
+		content: '';
+		height: 2px;
+		width: $burger-width;
+		background-color: black;
+	}
+
+	&:after {
+		display: block;
+		transform: translateY(0.4rem);
+		content: '';
+		height: 2px;
+		width: $burger-width;
+		background-color: black;
+	}
+}

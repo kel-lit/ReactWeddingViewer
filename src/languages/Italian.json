@@ -1,0 +1,12 @@
+{
+	"pages": 
+	{
+		"login":
+		{
+			"title": "Benvenuto",
+			"codeInputLabel": "Entra il tuo codice",
+			"codeInput": "Codice",
+			"login": "Login"
+		}
+	}
+}
