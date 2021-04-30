@@ -1,7 +1,7 @@
 import English from '../languages/English.json';
 import Italian from '../languages/Italian.json';
 
-export default function t(key) {
+function Translator(key) {
 	let currentLanguage = document.cookie.split('; ').find(row => row.startsWith('language=')).split('=')[1];
 
 	if (!currentLanguage) return key;
@@ -16,3 +16,5 @@ export default function t(key) {
 
 	return result ? result : key;
 }
+
+export { Translator };
