@@ -1,4 +1,4 @@
 node_modules/
 *.bat
 dist/
-express/secrets.json
+express/database/config.json
