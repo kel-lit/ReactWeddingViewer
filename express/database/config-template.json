@@ -1,0 +1,13 @@
+// Rename this to config.json
+{
+	"host": "",
+	"port": 27017,
+	"user": "",
+	"pass": "",
+	"args": "?authSource={  DatabaseName  }&readPreference=primary&appname=MongoDB%20Compass&ssl=false",
+
+	"options": 
+	{
+		"useUnifiedTopology": true
+	}
+}
