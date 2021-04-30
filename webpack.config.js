@@ -1,6 +1,7 @@
 const path 						= require('path');
 const HtmlWebpackPlugin 		= require('html-webpack-plugin');
 const { CleanWebpackPlugin }	= require('clean-webpack-plugin');
+const CopyWebpackPlugin			= require('copy-webpack-plugin');
 const webpack  					= require('webpack');
 
 module.exports = (env, args) => {
@@ -20,7 +21,14 @@ module.exports = (env, args) => {
 				},
 				{
 					test: /\.(png|svg|jpg|jpeg|gif)$/i,
-					type: 'asset/resource',
+					use: [{
+						loader: 'file-loader',
+						options: {
+							name: '[name].[ext]',
+							outputPath: 'images',
+							publicPath: './images'
+						}
+					}]
 				},
 				{
 					test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -30,11 +38,6 @@ module.exports = (env, args) => {
 					test: /\.(js|jsx)$/,
 					exclude: /node_modules/,
 					use: ['babel-loader'],
-				},
-				{
-					test: /\.json$/,
-					use: ['json-loader'],
-					include: './languages',
 				}
 			],
 		},
@@ -59,10 +62,10 @@ const plugins = () => {
 			dry: false,
 		}),
 		new HtmlWebpackPlugin({
-			hash: true,
+			hash: false,
 			filename: path.resolve(resOut, 'index.html'),
 			template: './src/index.ejs',
-		})
+		}),
 	]
 
 	return plugs;
@@ -81,10 +84,10 @@ const options = () => {
 			openPage: '',
 			hot: true,
 			proxy: {
-			 	'/api/**' : {
-			 		target: 'http://127.0.0.1:3000',
-			 		secure: false,
-					changeOrigin: true,
+			  	'/api/**' : {
+			  		target: 'http://127.0.0.1:3000',
+			  		secure: false,
+			 		changeOrigin: true,
 			 	}
 			},
 			allowedHosts: [
