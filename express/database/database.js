@@ -10,14 +10,16 @@ function initDb(callback) {
 		return callback(null, _db);
 	}
 
-	client.connect(`mongodb://${config.user}:${config.pass}@${config.host}:${config.port}/${config.args}`, config.options, connected);
+	console.log("Connecting to Database...");
+	var connectionString = `mongodb://${config.user}:${config.pass}@${config.host}:${config.port}/${config.args}`;
+	client.connect(connectionString, config.options, connected);
 
 	function connected(err, db) {
 		if (err) {
 			return callback(err);
 		} 
 
-		console.log(`Database initialised - Connected to ${host}:${port}`);
+		console.log(`Database initialised - Connected to ${config.host}:${config.port}`);
 		_db = db;
 		return callback(null, _db);
 	}

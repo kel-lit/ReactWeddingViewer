@@ -10,7 +10,9 @@ app.use(express.json());
 
 app.use('/api/', routes);
 
-initDb(() => {
+initDb((err, db) => {
+	if (err) throw err;
+	
 	app.listen(port, (err) => {
 		if (err) throw err;
 
