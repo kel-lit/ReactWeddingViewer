@@ -9,7 +9,7 @@ loginRouter.post('/', (req, res) => {
 	users.findOne({code: req.body.code})
 		.then(result => {
 			if (!result) {
-				res.json({"body": {"error": "Code not found"}});
+				res.json({"body": {"error": "pages.login.errors.codeNotFound"}});
 			}
 			else {
 				console.log(JSON.stringify(result.name));
