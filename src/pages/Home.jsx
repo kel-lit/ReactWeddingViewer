@@ -4,11 +4,11 @@ import PageHandler from './PageHandler';
 
 import styles from './Home.module.scss';
 
-export default function Home () {
+export default function Home ({ loginCallback }) {
 	return (
 		<>
 			<PageHandler>
-
+				
 			</PageHandler>
 		</>
 	)

@@ -6,7 +6,14 @@
 			"title": "Welcome",
 			"codeInputLabel": "Enter your code",
 			"codeInput": "Code",
-			"login": "Login"
+			"login": "Login",
+
+			"errors": {
+				"tooShort": "Code is too short",
+				"tooLong": "Code is too long",
+				"codeNotFound": "Code not found"
+			},
+			"logout": "Logout"
 		}
 	}
 }

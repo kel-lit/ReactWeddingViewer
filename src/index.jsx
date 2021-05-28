@@ -6,14 +6,14 @@ import Login	from './pages/Login';
 import styles from './index.module.scss';
 
 function App() {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState(true);
 
 	document.cookie = 'language=english';
 
 	return (
 		<>
-			{isLoggedIn && <Home />}
-			{!isLoggedIn && <Login callback={setIsLoggedIn}/>}
+			{isLoggedIn && <Home loginCallback={setIsLoggedIn} />}
+			{!isLoggedIn && <Login loginCallback={setIsLoggedIn} />}
 		</>
 	)
 }

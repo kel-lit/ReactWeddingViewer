@@ -14,13 +14,13 @@ function initDb(callback) {
 	var connectionString = `mongodb://${config.user}:${config.pass}@${config.host}:${config.port}/${config.args}`;
 	client.connect(connectionString, config.options, connected);
 
-	function connected(err, db) {
+	function connected(err, client) {
 		if (err) {
 			return callback(err);
 		} 
 
 		console.log(`Database initialised - Connected to ${config.host}:${config.port}`);
-		_db = db;
+		_db = client.db("WeddingViewer");
 		return callback(null, _db);
 	}
 }

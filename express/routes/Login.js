@@ -6,19 +6,16 @@ loginRouter.post('/', (req, res) => {
 
 	users = _db.collection('users');
 
-	users.findOne({code: req.body.code})
-		.then(result => {
-			if (!result) {
-				res.json({"body": {"error": "pages.login.errors.codeNotFound"}});
-			}
-			else {
-				console.log(JSON.stringify(result.name));
-				res.json({"body": {"success": result.name}});
-			}
-		})
-		.catch(error => {
-			res.json({"error": error});
-		})
+	users.find({code: req.body.code}).project({ _id: 0, 'name': 1 }).toArray((err, results) => {
+		if (err) throw err;
+
+		if (!results) {
+			res.json({"body": {"error": "pages.login.errors.codeNotFound"}});
+		} 
+		else {
+			res.json({"body": {"success": results}});
+		} 
+	})
 })
 
 module.exports = loginRouter;

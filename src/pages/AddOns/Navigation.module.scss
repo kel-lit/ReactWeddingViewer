@@ -9,22 +9,21 @@
 	position: absolute;
 	margin-top: 2rem;
 	width: 100%;
-	display: flex;
+	background-color: rgb(153, 205, 50);
 	flex-direction: column;
-	background-color: rgba(153, 205, 50, 0.693);
+	transition: all .3s ease;
+
+	&.menuOpen {
+		display: flex;
+	}
+	
+	&.menuClosed {
+		display: none;
+	}
 }
+
 
 .navItem {
-	max-width: 20%;
-	text-align: center;
+	width: 20%;
 	padding: 0.8rem;
-}
-
-// Menu
-.screenMask {
-	position: absolute;
-	width: 100vw;
-	height: 100vh;
-	background-color: rgba(black, $alpha: 0.2);
-	z-index: 1;
 }

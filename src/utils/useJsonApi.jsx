@@ -10,8 +10,6 @@ export default function useJsonApi(path) {
 	useEffect(() => {
 		if (request === false) return;
 
-		console.log("Making request: " + JSON.stringify(request));
-
 		const method = request === undefined ? 'GET' : 'POST';
 
 		fetch(apiPath, {
