@@ -1,8 +1,6 @@
 {
-	"pages": 
-	{
-		"login":
-		{
+	"pages": {
+		"login": {
 			"title": "Welcome",
 			"codeInputLabel": "Enter your code",
 			"codeInput": "Code",
@@ -14,6 +12,22 @@
 				"codeNotFound": "Code not found"
 			},
 			"logout": "Logout"
+		},
+
+		"info": {
+			"title": "Information"
+		},
+
+		"rsvp": {
+			"title": "RSVP"
+		},
+		
+		"location": {
+			"title": "Location"
+		},
+
+		"images": {
+			"title": "Images"
 		}
 	}
 }
