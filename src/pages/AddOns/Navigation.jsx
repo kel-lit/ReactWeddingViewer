@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BurgerMenu from './BurgerMenu';
+import {Translator as t} from '../../utils/Translator';
 
 import styles from './Navigation.module.scss';
 
@@ -9,18 +10,18 @@ export default function Navigation({ isMobile }) {
 	const [currentPage, setCurrentPage] = useState('info');
 	
 	const navItems = [
-		{text: 'pages.info.title', id: 'info'}, 
-		{text: 'pages.rsvp.title', id: 'rsvp'}, 
-		{text: 'pages.location.title', id:'loc'},
-		{text: 'pages.images.title', id: 'images'},
-		{text: 'pages.login.logout', id: 'logout'} 
+		{text: t('pages.info.title'), id: 'info'}, 
+		{text: t('pages.rsvp.title'), id: 'rsvp'}, 
+		{text: t('pages.location.title'), id:'loc'},
+		{text: t('pages.images.title'), id: 'images'},
+		{text: t('pages.login.logout'), id: 'logout'} 
 	];
 
 	const showMenu = () => {
 		const items = [];
 		
 		navItems.forEach((item, key) => {
-			items.push(<NavigationItem key={key} text={item.text} onClick={() => processMenuClick(item.id) } />);
+			items.push(<NavigationItem key={item.id} text={item.text} onClick={() => processMenuClick(item.id) } />);
 		})
 
 		return items;
