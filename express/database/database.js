@@ -11,7 +11,16 @@ function initDb(callback) {
 	}
 
 	console.log("Connecting to Database...");
-	var connectionString = `mongodb://${config.user}:${config.pass}@${config.host}:${config.port}/${config.args}`;
+
+	let connectionString;
+
+	if (config.user) {
+		connectionString = `mongodb://${config.user}:${config.pass}@${config.host}:${config.port}/${config.args}`;
+	}
+	else {
+		connectionString = `mongodb://${config.host}:${config.port}/${config.args}`
+	}
+
 	client.connect(connectionString, config.options, connected);
 
 	function connected(err, client) {
