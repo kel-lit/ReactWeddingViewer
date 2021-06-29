@@ -11,6 +11,9 @@ function Translator(key) {
 	let 	result 		= source;
 
 	sections.forEach(section => {
+		if (!result[section]) {
+			return key;
+		}
 		result = result[section];
 	})
 
