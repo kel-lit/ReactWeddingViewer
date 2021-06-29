@@ -20,7 +20,7 @@ export default function Login({ loginCallback }) {
 			setError(t('pages.login.errors.tooShort'));
 		}
 		else if (code.length > 8) {
-			setError(t('pages.login.error.tooLong'));
+			setError(t('pages.login.errors.tooLong'));
 		}
 		else {
 			login({code: code});
