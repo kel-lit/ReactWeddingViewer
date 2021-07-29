@@ -4,10 +4,9 @@ import {Translator as t} from 'utils/Translator';
 
 import styles from './Navigation.module.scss';
 
-export default function Navigation({ isMobile }) {
+export default function Navigation({ isMobile, currentPage, setPage }) {
 	const [items, setItems] = useState([]);
 	const [menuOpen, setMenuOpen] = useState(false);
-	const [currentPage, setCurrentPage] = useState('info');
 	
 	const navItems = [
 		{text: t('pages.info.title'), id: 'info'}, 
@@ -16,6 +15,11 @@ export default function Navigation({ isMobile }) {
 		{text: t('pages.images.title'), id: 'images'},
 		{text: t('pages.login.logout'), id: 'logout'} 
 	];
+
+	const processMenuClick = (id) => {
+		setPage(id);
+		setMenuOpen(false);
+	}
 
 	const showMenu = () => {
 		const items = [];
@@ -26,15 +30,6 @@ export default function Navigation({ isMobile }) {
 
 		return items;
 	}
-	
-	const processMenuClick = (id) => {
-		if (id === 'logout') {
-			// Handle logout
-		}
-		else {
-			setCurrentPage(id);
-		}
-	}
 
 	const renderMobile = () => {
 		return ( 
@@ -42,7 +37,7 @@ export default function Navigation({ isMobile }) {
 				<div className={[styles.itemDiv, menuOpen ? styles.menuOpen : styles.menuClosed].join(' ')}>
 					{showMenu()}
 				</div>
-				<BurgerMenu callback={setMenuOpen} />
+				<BurgerMenu active={menuOpen} callback={setMenuOpen} />
 			</div>
 		)
 	}

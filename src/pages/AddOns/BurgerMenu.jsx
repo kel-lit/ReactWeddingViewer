@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
 import styles from './BurgerMenu.module.scss'
 
-export default function BurgerMenu({callback}) {
-	const [menuActive, setMenuActive] = useState(false);
+export default function BurgerMenu({ active, callback }) {
 
 	const toggleMenu = () => {
-		callback(!menuActive); 
-		setMenuActive(menuActive => !menuActive);
+		callback(!active);
 	}
 
 	return (
 		<div className={styles.menuDiv} onClick={toggleMenu}>
-			<div className={styles.menuIcon}></div>
+			<div className={styles.menuIcon + ' ' + (active ? styles.menuActive : '')}></div>
 		</div>
 	)
 }
