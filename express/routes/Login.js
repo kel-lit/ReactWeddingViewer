@@ -10,10 +10,10 @@ loginRouter.post('/', (req, res) => {
 		if (err) throw err;
 
 		if (!results) {
-			res.json({"body": {"error": "pages.login.errors.codeNotFound"}});
+			res.json({'body': {'error': 'pages.login.errors.codeNotFound'}});
 		} 
 		else {
-			res.json({"body": {"success": results}});
+			res.json({'body': {'success': results}});
 		} 
 	})
 })
