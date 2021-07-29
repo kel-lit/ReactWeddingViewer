@@ -1,5 +1,5 @@
-import English from '../languages/English.json';
-import Italian from '../languages/Italian.json';
+import English from 'languages/English.json';
+import Italian from 'languages/Italian.json';
 
 function Translator(key) {
 	let currentLanguage = document.cookie.split('; ').find(row => row.startsWith('language=')).split('=')[1];

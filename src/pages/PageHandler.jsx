@@ -1,6 +1,9 @@
 import React, {  } from 'react';
 import Navigation, { NavigationItem } from './AddOns/Navigation';
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
+import NameJoiner from 'utils/NameJoiner';
+import { PageHeading, PageContent } from './AddOns/PageLayout';
+import {Translator as t} from 'utils/Translator';
 
 export default function PageHandler () {
 	const formatNames = () => {

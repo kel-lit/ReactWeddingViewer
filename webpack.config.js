@@ -42,7 +42,12 @@ module.exports = (env, args) => {
 			],
 		},
 		resolve: {
-			extensions: ['*', '.js', '.jsx'],
+			extensions: ['*', '.js', '.jsx', '.json', '.png', '.jpg'],
+			alias: {
+				images: path.resolve('src/images'),
+				utils: path.resolve('src/utils'),
+				languages: path.resolve('src/languages')
+			}
 		},
 		plugins: plugins(),
 		output: {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BurgerMenu from './BurgerMenu';
-import {Translator as t} from '../../utils/Translator';
+import {Translator as t} from 'utils/Translator';
 
 import styles from './Navigation.module.scss';
 
