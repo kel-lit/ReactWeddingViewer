@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from '../utils/Buttons';
-import useJsonApi from '../utils/useJsonApi';
-import {Translator as t} from '../utils/Translator';
-import UserProfile from '../utils/UserProfile';
+import { Button } from 'utils/Buttons';
+import useJsonApi from 'utils/useJsonApi';
+import {Translator as t} from 'utils/Translator';
+import UserProfile from 'utils/UserProfile';
 
-import styles from './Login.module.scss';
+import styles from './Login.scss';
 
-import logo from '../images/logo.png';
-import back from '../images/login-back.jpg';
+import logo from 'images/logo.png';
+import back from 'images/login-back.jpg';
 
 export default function Login({ loginCallback }) {
 	const [code, setCode] = useState('');
@@ -17,10 +17,10 @@ export default function Login({ loginCallback }) {
 
 	const doLogin = () => {
 		if (code.length < 8) {
-			setError(t('pages.login.errors.tooShort'));
+			setError(t('pages.login.errors.tooshort'));
 		}
 		else if (code.length > 8) {
-			setError(t('pages.login.errors.tooLong'));
+			setError(t('pages.login.errors.toolong'));
 		}
 		else {
 			login({code: code});
@@ -55,16 +55,16 @@ export default function Login({ loginCallback }) {
 					<div className={styles.formCard}>
 						<img src={logo} className={styles.logo}/>
 						<div className={styles.loginTitle}>{t('pages.login.title')}</div>
-						<label htmlFor='loginInput' className={styles.inputLabel} >{t('pages.login.codeInputLabel')}</label>
+						<label htmlFor='logininput' className={styles.inputLabel} >{t('pages.login.codeinputlabel')}</label>
 						<input className={styles.loginInput} 
 							onFocus={() => setInputActive(true)} 
 							onBlur={() => setInputActive(false)} 
 							onChange={(e) => setCode(e.target.value)} 
-							placeholder={!inputActive ? t('pages.login.codeInput') : ''} 
+							placeholder={!inputActive ? t('pages.login.codeinput') : ''} 
 							autoCapitalize='None'
 							autoCorrect='off' />
 
-						{error && <div className={styles.error}>{error}</div>}
+						{ error && <div className={styles.error}>{error}</div> }
 						<Button className={styles.loginButton} onClick={doLogin} text={t('pages.login.login')} />
 					</div>
 				</form>

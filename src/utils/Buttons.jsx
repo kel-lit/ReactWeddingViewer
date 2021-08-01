@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Buttons.module.scss';
+import styles from './Buttons.scss';
 
 function Button ({ text, onClick, className }) {
 	return (

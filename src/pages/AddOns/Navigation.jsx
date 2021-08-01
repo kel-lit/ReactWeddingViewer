@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import BurgerMenu from './BurgerMenu';
 import {Translator as t} from 'utils/Translator';
 
-import styles from './Navigation.module.scss';
+import styles from './Navigation.scss';
 
 export default function Navigation({ isMobile, currentPage, setPage }) {
 	const [items, setItems] = useState([]);

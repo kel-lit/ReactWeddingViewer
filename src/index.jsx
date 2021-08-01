@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import Home		from './pages/Home';
 import Login	from './pages/Login';
 
-import styles from './index.module.scss';
+import styles from './index.scss';
 
 function App() {
-	const [isLoggedIn, setIsLoggedIn] = useState(true);
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 	document.cookie = 'language=english';
 

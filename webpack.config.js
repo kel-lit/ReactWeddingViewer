@@ -5,19 +5,36 @@ const CopyWebpackPlugin			= require('copy-webpack-plugin');
 const webpack  					= require('webpack');
 
 module.exports = (env, args) => {
-
+	
 	return {
 		entry: './src/index.jsx',
 		...(options()),
 		module: {
 			rules: [
 				{
-					test: /\.css$/i,
-					use: ['style-loader', 'css-loader'],
+					test: /\.(js|jsx)$/,
+					include: path.join(__dirname, 'src'),
+					exclude: /node_modules/,
+					use: ['babel-loader']
 				},
 				{
 					test: /\.scss$/i,
-					use: ['style-loader', 'css-loader', 'sass-loader'],
+					use: ['style-loader',
+					{
+						loader :'css-loader', 
+						options: {
+							sourceMap: true,
+							modules: {
+								localIdentName: '[name]_[local]'
+							}
+						} 
+					}, 
+					{
+						loader: 'sass-loader',
+						options: {
+							sourceMap: true
+						}
+					}],
 				},
 				{
 					test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -33,16 +50,11 @@ module.exports = (env, args) => {
 				{
 					test: /\.(woff|woff2|eot|ttf|otf)$/i,
 					type: 'asset/resource',
-				},
-				{
-					test: /\.(js|jsx)$/,
-					exclude: /node_modules/,
-					use: ['babel-loader'],
 				}
 			],
 		},
 		resolve: {
-			extensions: ['*', '.js', '.jsx', '.json', '.png', '.jpg'],
+			extensions: ['*', '.js', '.jsx', '.json', '.png', '.jpg', '.scss'],
 			alias: {
 				images: path.resolve('src/images'),
 				utils: path.resolve('src/utils'),

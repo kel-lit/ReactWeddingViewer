@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './BurgerMenu.module.scss'
+import styles from './BurgerMenu.scss'
 
 export default function BurgerMenu({ active, callback }) {
 
