@@ -2,14 +2,14 @@
 	"pages": {
 		"login": {
 			"title": "Welcome",
-			"codeInputLabel": "Enter your code",
-			"codeInput": "Code",
+			"codeinputlabel": "Enter your code",
+			"codeinput": "Code",
 			"login": "Login",
 
 			"errors": {
-				"tooShort": "Code is too short",
-				"tooLong": "Code is too long",
-				"codeNotFound": "Code not found"
+				"tooshort": "Code is too short",
+				"toolong": "Code is too long",
+				"codenotfound": "Code not found"
 			},
 			"logout": "Logout"
 		},

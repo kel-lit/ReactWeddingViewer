@@ -4,9 +4,33 @@
 		"login":
 		{
 			"title": "Benvenuto",
-			"codeInputLabel": "Entra il tuo codice",
-			"codeInput": "Codice",
-			"login": "Login"
+			"codeinputlabel": "Entra il tuo codice",
+			"codeinput": "Codice",
+			"login": "Login",
+			
+			"errors": {
+				"tooshort": "Codice è troppo basso",
+				"toolong": "Codice è troppo lungo",
+				"codenotfound": "Codice non trovato"
+			},
+
+			"logout": "Logout"
+		},
+
+		"info": {
+			"title": "Informazioni"
+		},
+
+		"rsvp": {
+			"title": "RSVP"
+		},
+
+		"location": {
+			"title": "Località"
+		},
+
+		"images": {
+			"title": "Immagini"
 		}
 	}
 }
