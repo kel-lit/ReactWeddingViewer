@@ -6,15 +6,14 @@ loginRouter.post('/', (req, res) => {
 
 	users = _db.collection('users');
 
-	users.find({code: req.body.code}).project({ _id: 0, 'name': 1 }).toArray((err, results) => {
-		if (err) throw err;
+	users.findOne({code: req.body.code}, {projection: {_id: 0, 'guests': 1}}, (err, results) => {
+		if (err)
+			res.json({body: {error: 'pages.login.errors.dberror'}, additional: err})
 
-		if (!results) {
-			res.json({'body': {'error': 'pages.login.errors.codeNotFound'}});
-		} 
-		else {
-			res.json({'body': {'success': results}});
-		} 
+		if (!results || results.empty)
+			res.json({body: {error: 'pages.login.errors.codenotfound'}});
+		else
+			res.json({body: {success: true, data: results.guests}});
 	})
 })
 
