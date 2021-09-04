@@ -1,41 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import BurgerMenu from './BurgerMenu';
 import {Translator as t} from 'utils/Translator';
 
 import styles from './Navigation.scss';
 
 export default function Navigation({ isMobile, currentPage, setPage }) {
-	const [items, setItems] = useState([]);
-	const [menuOpen, setMenuOpen] = useState(false);
+	const [menu, setMenu] 			= useState(null);
+	const [menuOpen, setMenuOpen] 	= useState(false);
 	
 	const navItems = [
-		{text: t('pages.info.title'), id: 'info'}, 
-		{text: t('pages.rsvp.title'), id: 'rsvp'}, 
-		{text: t('pages.location.title'), id:'loc'},
-		{text: t('pages.images.title'), id: 'images'},
-		{text: t('pages.login.logout'), id: 'logout'} 
+		{text: t('pages.home.title'),		url: '/'},
+		{text: t('pages.info.title'), 		url: '/information'}, 
+		{text: t('pages.rsvp.title'), 		url: '/rsvp'}, 
+		{text: t('pages.location.title'), 	url: '/location'},
+		{text: t('pages.images.title'), 	url: '/images'},
+		{text: t('pages.login.logout'), 	url: '/logout'} 
 	];
-
-	const processMenuClick = (id) => {
-		setPage(id);
-		setMenuOpen(false);
-	}
-
-	const showMenu = () => {
-		const items = [];
-		
-		navItems.forEach((item, key) => {
-			items.push(<NavigationItem key={item.id} text={item.text} onClick={() => processMenuClick(item.id) } />);
-		})
-
-		return items;
-	}
 
 	const renderMobile = () => {
 		return ( 
 			<div className={styles.navDiv}>
 				<div className={[styles.itemDiv, menuOpen ? styles.menuOpen : styles.menuClosed].join(' ')}>
-					{showMenu()}
+					{ menu }
 				</div>
 				<BurgerMenu active={menuOpen} callback={setMenuOpen} />
 			</div>
@@ -48,20 +35,12 @@ export default function Navigation({ isMobile, currentPage, setPage }) {
 		)
 	}
 
-	return (
-		<>
-			{isMobile && renderMobile()}
-			{!isMobile && renderBrowser()}
-		</>
-	)
-}
+	useEffect(() => {
+		setMenu(navItems.map((item, key) => <Link key={key} className={styles.navItem	} to={item.url}>{item.text}</Link>));
+	}, [])
 
-function NavigationItem({id, text, onClick}) {
-	return (
-		<span onClick={onClick} className={styles.navItem}>
-			{text}
-		</span>
-	)
+	if (isMobile)
+		return renderMobile();
+	else
+		return renderBrowser();
 }
-
-export { NavigationItem }

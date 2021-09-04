@@ -4,18 +4,38 @@ import Home		from './pages/Home';
 import Login	from './pages/Login';
 
 import styles from './index.scss';
+import PageHandler from './pages/PageHandler';
+
+const UserContext = React.createContext(null);
 
 function App() {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] 	= useState(false);
+	const [guests, setGuests]			= useState(null);
 
 	document.cookie = 'language=english';
 
-	return (
-		<>
-			{isLoggedIn && <Home loginCallback={setIsLoggedIn} />}
-			{!isLoggedIn && <Login loginCallback={setIsLoggedIn} />}
-		</>
-	)
+	const login = () => {
+		setIsLoggedIn(true);
+	}
+
+	const logout = () => {
+		setIsLoggedIn(false);
+	}
+
+	if (isLoggedIn) {
+		return (
+			<UserContext.Provider value={{logout: logout, guests: guests}}>
+				<PageHandler />
+			</UserContext.Provider>
+		)
+	}
+	else {
+		return (
+			<UserContext.Provider value={{ login: login, setGuests: setGuests }}>
+				<Login />
+			</UserContext.Provider>
+		)
+	}
 }
 
 ReactDOM.render((
@@ -23,3 +43,5 @@ ReactDOM.render((
 ), document.getElementById('root'));
 
 module.hot.accept();
+
+export { UserContext };

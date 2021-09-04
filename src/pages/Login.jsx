@@ -1,20 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Button } from 'utils/Buttons';
 import useJsonApi from 'utils/useJsonApi';
 import {Translator as t} from 'utils/Translator';
 import UserProfile from 'utils/UserProfile';
+import { UserContext } from '../index';
 
 import styles from './Login.scss';
 
 import imageLogo from 'images/logo.png';
 import imageBackground from 'images/login-back.jpg';
 
-export default function Login({ loginCallback }) {
+export default function Login() {
 	const [loginResponse, loginLoading, loginError, login] = useJsonApi('/api/login');
 
 	const [code, setCode] 				= useState('');
 	const [error, setError] 			= useState(null);
 	const [inputActive, setInputActive] = useState(false);
+
+	const context = useContext(UserContext);
 
 	const doLogin = () => {
 		if (code.length < 8) {
@@ -32,11 +35,9 @@ export default function Login({ loginCallback }) {
 		if (!loginResponse.isLoaded) return;
 
 		if (loginResponse.result.success) {
-			const names = loginResponse.result.data.map(obj => obj.name);
+			context.setGuests(loginResponse.result.data.map(obj => obj.name));
 
-			sessionStorage.setItem('names', names.join(';'));
-
-			loginCallback(true);
+			context.login();
 		}
 		else if (loginResponse.result.error){
 			setError(t(loginResponse.result.error));
