@@ -6,14 +6,15 @@ import UserProfile from 'utils/UserProfile';
 
 import styles from './Login.scss';
 
-import logo from 'images/logo.png';
-import back from 'images/login-back.jpg';
+import imageLogo from 'images/logo.png';
+import imageBackground from 'images/login-back.jpg';
 
 export default function Login({ loginCallback }) {
-	const [code, setCode] = useState('');
-	const [error, setError] = useState(false);
-	const [inputActive, setInputActive] = useState(false);
 	const [loginResponse, loginLoading, loginError, login] = useJsonApi('/api/login');
+
+	const [code, setCode] 				= useState('');
+	const [error, setError] 			= useState(null);
+	const [inputActive, setInputActive] = useState(false);
 
 	const doLogin = () => {
 		if (code.length < 8) {
@@ -31,14 +32,9 @@ export default function Login({ loginCallback }) {
 		if (!loginResponse.isLoaded) return;
 
 		if (loginResponse.result.success) {
-			var names = '';
+			const names = loginResponse.result.data.map(obj => obj.name);
 
-			Object.values(loginResponse.result.success).forEach((value, index) => {
-				names += value.name;
-				if (index != loginResponse.result.success.length - 1) names += ';'
-			})
-
-			sessionStorage.setItem('names', names); // Create a list like 'Name1; Name2; Name3
+			sessionStorage.setItem('names', names.join(';'));
 
 			loginCallback(true);
 		}
@@ -50,10 +46,10 @@ export default function Login({ loginCallback }) {
 	return (
 		<>	
 			<div className={styles.loginBody} onSubmit={(e) => { e.preventDefault(); }}>
-				<img className={styles.background} src={back} />
+				<img className={styles.background} src={imageBackground} />
 				<form action={null} className={styles.form}>
 					<div className={styles.formCard}>
-						<img src={logo} className={styles.logo}/>
+						<img src={imageLogo} className={styles.logo}/>
 						<div className={styles.loginTitle}>{t('pages.login.title')}</div>
 						<label htmlFor='logininput' className={styles.inputLabel} >{t('pages.login.codeinputlabel')}</label>
 						<input className={styles.loginInput} 
