@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 import { Button } from 'utils/Buttons';
 import useJsonApi from 'utils/useJsonApi';
 import {Translator as t} from 'utils/Translator';
@@ -10,7 +11,7 @@ import styles from './Login.scss';
 import imageLogo from 'images/logo.png';
 import imageBackground from 'images/login-back.jpg';
 
-export default function Login() {
+export default function Login(props) {
 	const [loginResponse, loginLoading, loginError, login] = useJsonApi('/api/login');
 
 	const [code, setCode] 				= useState('');
@@ -45,7 +46,8 @@ export default function Login() {
 	}, [loginResponse])
 
 	return (
-		<>	
+		<Router>
+			<Redirect to='/'/>
 			<div className={styles.loginBody} onSubmit={(e) => { e.preventDefault(); }}>
 				<img className={styles.background} src={imageBackground} />
 				<form action={null} className={styles.form}>
@@ -66,8 +68,8 @@ export default function Login() {
 					</div>
 				</form>
 			</div>
-		</>
+		</Router>
 	)
 }
 
-// Look into useContext
+// Look into useContext 
