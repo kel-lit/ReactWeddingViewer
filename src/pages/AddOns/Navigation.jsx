@@ -5,7 +5,7 @@ import {Translator as t} from 'utils/Translator';
 
 import styles from './Navigation.scss';
 
-export default function Navigation({ isMobile, currentPage, setPage }) {
+export default function Navigation({ isMobile }) {
 	const [menu, setMenu] 			= useState(null);
 	const [menuOpen, setMenuOpen] 	= useState(false);
 	
