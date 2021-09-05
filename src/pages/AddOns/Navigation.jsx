@@ -35,8 +35,12 @@ export default function Navigation({ isMobile, currentPage, setPage }) {
 		)
 	}
 
+	const closeOnClick = () => {
+		setMenuOpen(false);
+	}
+
 	useEffect(() => {
-		setMenu(navItems.map((item, key) => <Link key={key} className={styles.navItem	} to={item.url}>{item.text}</Link>));
+		setMenu(navItems.map((item, key) => <Link key={key} className={styles.navItem} to={item.url} onClick={closeOnClick}>{item.text}</Link>));
 	}, [])
 
 	if (isMobile)
