@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 
 export default function useJsonApi(path) {
-	const [response, setResponse] 	= useState({isLoaded: false, message: undefined});
+	const [response, setResponse] 	= useState({isLoaded: false});
 	const [loading, setLoading]		= useState(false);
 	const [error, setError] 		= useState(null);
-	const [apiPath, setApiPath] 	= useState(path);
-	const [request, setRequest]		= useState(false);
+	const [request, setRequest]		= useState(null);
+	
+	const apiPath = path;
 
 	useEffect(() => {
-		if (request === false) return;
+		if (request === null) return;
 
 		const method = request === undefined ? 'GET' : 'POST';
 
