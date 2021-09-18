@@ -1,20 +1,28 @@
-const loginRouter 	= require('express').Router();
-const getDb 		= require('../database/database').getDb;
+const loginRouter 		= require('express').Router();
+const getDb 			= require('../database/database').getDb;
+const createSession 	= require('../database/session').createSession;
+const checkSession 		= require('../database/session').checkSession;
+const getCookieSection 	= require('../utils/getCookieSection');
 
-loginRouter.post('/', (req, res) => {
-	_db = getDb();
+loginRouter.post('/', async (req, res) => {
+	const _db 	= getDb();
+	const users = _db.collection('users');
 
-	users = _db.collection('users');
+	const guests 	= await users.findOne({code: req.body.code}, {projection: {_id: 0, 'guests': 1}});
+	const token 	= await createSession(guests);
+	
+	res.cookie('ksweddingviewer_session', token, {httpOnly: true});
+	res.json({body: {success: true, ...guests}});
+})
 
-	users.findOne({code: req.body.code}, {projection: {_id: 0, 'guests': 1}}, (err, results) => {
-		if (err)
-			res.json({body: {error: 'pages.login.errors.dberror'}, additional: err})
+loginRouter.get('/checkForSession', async (req, res) => {
+	const isValid = await checkSession(getCookieSection(req.headers.cookie, 'ksweddingviewer_session'));
 
-		if (!results || results.empty)
-			res.json({body: {error: 'pages.login.errors.codenotfound'}});
-		else
-			res.json({body: {success: true, data: results.guests}});
-	})
+	if (isValid.error) {
+		res.json({body: {...isValid}})
+	}
+	else
+		res.json({body: {success: true, ...isValid.guests}})
 })
 
 module.exports = loginRouter;

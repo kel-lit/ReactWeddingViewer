@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export default function useJsonApi(path) {
-	const [response, setResponse] 	= useState({isLoaded: false});
+	const [response, setResponse] 	= useState(null);
 	const [loading, setLoading]		= useState(false);
 	const [error, setError] 		= useState(null);
 	const [request, setRequest]		= useState(null);
@@ -18,17 +18,17 @@ export default function useJsonApi(path) {
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			...(method === 'GET' ? '' : {body : JSON.stringify(request)})
+			...(method === 'GET' ? '' : {body: JSON.stringify({...request})})
 		})
 		.then(res => res.json())
 		.then(res => {
-			setResponse(reponse => ({...response, isLoaded: true, result: res.body}));
+			setResponse({isLoaded: true, result: res.body});
 		})
 		.catch(error => {
-			setResponse(response => ({...response, isLoaded: false, error: error}));
+			setResponse({isLoaded: false, error: error});
 		})
 
-		setRequest(false);
+		setRequest(null);
 	}, [request])
  	
 	return [response, loading, error, setRequest]

@@ -1,6 +1,5 @@
 const Login 	= require('./Login')
-
-const routes = require('express').Router();
+const routes 	= require('express').Router();
 
 routes.use('/login', Login);
 
