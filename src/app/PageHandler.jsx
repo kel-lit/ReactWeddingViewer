@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 import Navigation from './AddOns/Navigation';
 import { UserContext } from '../index';
 
-import Home from './Home';
+import Home from './pages/Home';
+import Info from './pages/Info'
 
 export default function PageHandler () {
 	const context = useContext(UserContext);

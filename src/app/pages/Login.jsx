@@ -33,14 +33,14 @@ export default function Login(props) {
 	}
 
 	useEffect(() => {
-		if (!loginResponse.isLoaded) return;
+		if (!loginResponse) return;
 
-		if (loginResponse.result.success) {
-			context.setGuests(loginResponse.result.data.map(obj => obj.name));
+		if (loginResponse.result &&  loginResponse.result.success) {
+			context.setGuests(loginResponse.result.guests.map(obj => obj.name));
 
 			context.login();
 		}
-		else if (loginResponse.result.error){
+		else if (loginResponse.result && loginResponse.result.error){
 			setError(t(loginResponse.result.error));
 		}
 	}, [loginResponse])
@@ -71,5 +71,3 @@ export default function Login(props) {
 		</Router>
 	)
 }
-
-// Look into useContext 

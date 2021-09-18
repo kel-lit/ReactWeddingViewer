@@ -14,7 +14,7 @@ export default function Home () {
 		<>
 			<PageHeading value={NameJoiner(context.guests)} />
 			
-			<PageContent value={''} />
+			<PageContent value={'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum sapiente facere quis esse corporis libero eaque quo animi odio est aperiam omnis cumque consequatur hic saepe, id quisquam consectetur minus.'} />
 		</>
 	)
 }
