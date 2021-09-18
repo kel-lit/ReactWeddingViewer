@@ -5,7 +5,10 @@ import Navigation from './AddOns/Navigation';
 import { UserContext } from '../index';
 
 import Home from './pages/Home';
-import Info from './pages/Info'
+import Info from './pages/Info';
+import RSVP from './pages/RSVP';
+import Location from './pages/Location';
+import Images from './pages/Images';
 
 export default function PageHandler () {
 	const context = useContext(UserContext);
@@ -19,16 +22,16 @@ export default function PageHandler () {
 						<Home />
 					</Route>
 					<Route path='/information'>
-						<Home />
+						<Info />
 					</Route>
 					<Route path='/rsvp'>
-						<Home />
+						<RSVP />
 					</Route>
 					<Route path='/location'>
-						<Home />
+						<Location />
 					</Route>
 					<Route path='/images'>
-						<Home />
+						<Images />
 					</Route>
 					<Route path='/logout'>
 						<Home />
