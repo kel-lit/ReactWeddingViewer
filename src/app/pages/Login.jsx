@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 import { Button } from 'utils/Buttons';
 import useJsonApi from 'utils/useJsonApi';
 import {Translator as t} from 'utils/Translator';
-import UserProfile from 'utils/UserProfile';
-import { UserContext } from '../index';
+import { UserContext } from '../../index';
 
 import styles from './Login.scss';
 
