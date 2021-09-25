@@ -17,7 +17,7 @@ function App() {
 	const [guests, setGuests]			= useState(null);
 	const [isLoggedIn, setIsLoggedIn] 	= useState(true);
 
-	document.cookie = 'language=english';
+	document.cookie = 'ksweddingviewer_language=english';
 
 	const login = () => {
 		setIsLoggedIn(true);

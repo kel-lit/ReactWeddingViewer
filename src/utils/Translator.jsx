@@ -2,7 +2,7 @@ import English from 'languages/English.json';
 import Italian from 'languages/Italian.json';
 
 function Translator(key) {
-	let currentLanguage = document.cookie.split('; ').find(row => row.startsWith('language=')).split('=')[1] || "english";
+	let currentLanguage = document.cookie.split('; ').find(row => row.startsWith('ksweddingviewer_language=')).split('=')[1] || "english";
 
 	const 	source 		= currentLanguage == "english" ? English : Italian;
 	const 	sections 	= key.split('.');
