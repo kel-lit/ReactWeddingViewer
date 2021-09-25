@@ -18,9 +18,6 @@ export default function PageHandler () {
 			<Router>
 				<Navigation isMobile={isMobile} />
 				<Switch>
-					<Route path='/'>
-						<Home />
-					</Route>
 					<Route path='/information'>
 						<Info />
 					</Route>
@@ -34,6 +31,9 @@ export default function PageHandler () {
 						<Images />
 					</Route>
 					<Route path='/logout'>
+						<Home />
+					</Route>
+					<Route path='/'>
 						<Home />
 					</Route>
 				</Switch>
