@@ -39,6 +39,7 @@
 		"react": "^17.0.1",
 		"react-device-detect": "^1.17.0",
 		"react-dom": "^17.0.1",
-		"react-router-dom": "^5.3.0"
+		"react-router-dom": "^5.3.0",
+		"ttf-loader": "^1.0.2"
 	}
 }
