@@ -4,6 +4,7 @@ import Login from './app/pages/Login';
 import PageHandler from './app/PageHandler';
 import useJsonApi from 'utils/useJsonApi';
 import Loader from 'utils/Loader';
+import GetLocale from 'utils/GetLocale';
 
 const tokenCookie = 'ksweddingviewer_token';
 const UserContext = React.createContext({});
@@ -15,7 +16,7 @@ function App() {
 	const [guests, setGuests]			= useState(null);
 	const [isLoggedIn, setIsLoggedIn] 	= useState(true);
 
-	document.cookie = 'ksweddingviewer_language=english';
+	document.cookie = 'ksweddingviewer_language=' + GetLocale();
 
 	const login = () => {
 		setIsLoggedIn(true);
