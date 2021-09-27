@@ -5,8 +5,6 @@ import PageHandler from './app/PageHandler';
 import useJsonApi from 'utils/useJsonApi';
 import Loader from 'utils/Loader';
 
-import styles from './index.scss';
-
 const tokenCookie = 'ksweddingviewer_token';
 const UserContext = React.createContext({});
 
