@@ -46,23 +46,31 @@ export default function Login(props) {
 	return (
 		<Router>
 			<Redirect to='/'/>
-			<div className={styles.loginBody} onSubmit={(e) => { e.preventDefault(); }}>
-				<img className={styles.background} src={imageBackground} />
+			<div className={styles.login_body} onSubmit={(e) => { e.preventDefault(); }}>
 				<form action={null} className={styles.form}>
-					<div className={styles.formCard}>
-						<img src={imageLogo} className={styles.logo}/>
-						<div className={styles.loginTitle}>{t('pages.login.title')}</div>
-						<label htmlFor='logininput' className={styles.inputLabel} >{t('pages.login.codeinputlabel')}</label>
-						<input className={styles.loginInput} 
-							onFocus={() => setInputActive(true)} 
-							onBlur={() => setInputActive(false)} 
-							onChange={(e) => setCode(e.target.value)} 
-							placeholder={!inputActive ? t('pages.login.codeinput') : ''} 
-							autoCapitalize='None'
-							autoCorrect='off' />
+					<div className={styles.heading}>
+						<img src={imageLogo} className={styles.logo}/>	
+						<div className={styles.heading_title}>
+							{t('pages.login.title')}
+						</div>
+					</div>
+					<div className={styles.background_container}>
+						<img src={imageBackground} className={styles.background} />
+					</div>
+					<div className={styles.input_container}>
+						<div className={styles.input_card}>
+							<label htmlFor='logininput' className={styles.input_label} >{t('pages.login.codeinputlabel')}</label>
+							<input className={styles.input} 
+								onFocus={() => setInputActive(true)} 
+								onBlur={() => setInputActive(false)} 
+								onChange={(e) => setCode(e.target.value)} 
+								placeholder={!inputActive ? t('pages.login.codeinput') : ''} 
+								autoCapitalize='None'
+								autoCorrect='off' />
 
-						{ error && <div className={styles.error}>{error}</div> }
-						<Button className={styles.loginButton} onClick={doLogin} text={t('pages.login.login')} />
+							{ error && <div className={styles.error}>{error}</div> }
+							<Button className={styles.button} onClick={doLogin} text={t('pages.login.login')} />
+						</div>
 					</div>
 				</form>
 			</div>

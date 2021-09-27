@@ -48,7 +48,7 @@ module.exports = (env, args) => {
 					}]
 				},
 				{
-					test: /\.(woff|woff2|eot|ttf|otf)$/i,
+					test: /\.ttf$/i,
 					type: 'asset/resource',
 				}
 			],
