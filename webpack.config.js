@@ -83,6 +83,9 @@ const plugins = () => {
 			filename: path.resolve(resOut, 'index.html'),
 			template: './src/index.ejs',
 		}),
+		new webpack.ProvidePlugin({
+			t: [path.resolve(__dirname, 'src/utils/Translator'), 'default']
+		})
 	]
 
 	return plugs;

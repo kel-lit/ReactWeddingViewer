@@ -1,7 +1,7 @@
 import English from 'languages/English.json';
 import Italian from 'languages/Italian.json';
 
-function Translator(key) {
+export default function Translator(key) {
 	let currentLanguage = document.cookie.split('; ').find(row => row.startsWith('ksweddingviewer_language=')).split('=')[1] || "english";
 
 	const 	source 		= currentLanguage == "english" ? English : Italian;
@@ -15,7 +15,7 @@ function Translator(key) {
 		result = result[section];
 	}
 
-	return result ? result : key;
+	return typeof result === 'string' ? result : key;
 }
 
-export { Translator };
+// export { Translator };

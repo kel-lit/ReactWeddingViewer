@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 import { Button } from 'utils/Buttons';
 import useJsonApi from 'utils/useJsonApi';
-import {Translator as t} from 'utils/Translator';
 import { UserContext } from '../../index';
 
 import styles from './Login.scss';

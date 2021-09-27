@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { PageHeading, PageContent } from '../AddOns/PageLayout';
-import {Translator as t} from 'utils/Translator';
 import NameJoiner from 'utils/NameJoiner';
 
 import { UserContext } from '../../index';
