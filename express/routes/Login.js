@@ -2,6 +2,7 @@ const loginRouter 		= require('express').Router();
 const getDb 			= require('../database/database').getDb;
 const createSession 	= require('../database/session').createSession;
 const checkSession 		= require('../database/session').checkSession;
+const removeSession 	= require('../database/session').removeSession;
 const getCookieSection 	= require('../utils/getCookieSection');
 
 loginRouter.post('/', async (req, res) => {
@@ -23,6 +24,12 @@ loginRouter.get('/checkForSession', async (req, res) => {
 	}
 	else
 		res.json({body: {success: true, ...isValid.guests}})
+})
+
+loginRouter.get('/logout', async (req, res) => {
+	removeSession(getCookieSection(req.headers.cookie, 'ksweddingviewer_session')).then(() => {
+		res.json({body: {success: true}})
+	})
 })
 
 module.exports = loginRouter;

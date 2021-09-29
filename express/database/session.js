@@ -47,13 +47,12 @@ async function checkSession(cookie) {
 		return { error: 'nosession' };
 	
 	const _db 		= getDb();
-	const users 	= _db.collection('usres');
 	const sessions	= _db.collection('sessions');
 
 	const session = await sessions.findOne({token: cookie}, {projection: {_id: 0, 'guests': 1, 'expires': 2}});
 
 	if (!isSessionValid(session)) {
-		sessions.remove({token: cookie});
+		removeSession(cookie);
 		return { error: 'sessionexpired' };
 	}
 
@@ -64,4 +63,10 @@ function isSessionValid(session) {
 	return session.expires && session.expires > (new Date().getTime() / 1000);
 }
 
-module.exports = { createSession, checkSession };
+function removeSession(session) {
+	const sessions = getDb().collection('sessions');
+
+	return sessions.remove({token: session});
+}
+
+module.exports = { createSession, checkSession, removeSession };

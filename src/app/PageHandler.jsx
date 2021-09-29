@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 import Navigation from './AddOns/Navigation';
 import { UserContext } from '../index';
+import useJsonApi from 'utils/useJsonApi';
 
 import Home from './pages/Home';
 import Info from './pages/Info';
@@ -31,7 +32,7 @@ export default function PageHandler () {
 						<Images />
 					</Route>
 					<Route path='/logout'>
-						<Home />
+						<Logout logout={context.logout}/>
 					</Route>
 					<Route path='/'>
 						<Home />
@@ -40,4 +41,25 @@ export default function PageHandler () {
 			</Router>
 		</>
 	)	
+}
+
+function Logout({ logout }) {
+	const [res, loading, error, req] = useJsonApi('/api/login/logout')
+
+	const [redirect, setRedirect] = useState(false)
+
+	useEffect(() => {
+		if (!res)
+			req()
+		else if (res.isLoaded) {
+			logout()
+			setRedirect(true)
+		}
+	}, [res])
+
+	if (redirect)
+		return <Redirect to='/' />
+
+	else
+		return null
 }
