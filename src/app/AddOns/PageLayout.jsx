@@ -16,4 +16,14 @@ function PageContent({ value, className }){
 	)
 }
 
-export { PageHeading, PageContent }
+function PageDivider() {
+	return <div className={styles.divider}/>
+}
+
+export default function PageLayout({ children }) {
+	return <div className={styles.layout}>
+		{ children }
+	</div>
+}
+
+export { PageHeading, PageContent, PageDivider } 
