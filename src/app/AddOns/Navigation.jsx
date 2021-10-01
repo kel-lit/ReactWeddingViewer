@@ -45,10 +45,6 @@ export default function Navigation({ isMobile }) {
 		setMenuOpen(false);
 	}
 
-	// useEffect(() => {
-	// 	setMenu(navItems.map((item, key) => <Link key={key} className={styles.navItem} to={item.url} onClick={closeOnClick}>{item.text}</Link>));
-	// }, [])
-
 	if (isMobile)
 		return renderMobile();
 	else
