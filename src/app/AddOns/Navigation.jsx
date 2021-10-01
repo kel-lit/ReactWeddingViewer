@@ -4,8 +4,10 @@ import BurgerMenu from './BurgerMenu';
 
 import styles from './Navigation.scss';
 
+import imageLogo from 'images/logo.png';
+
 export default function Navigation({ isMobile }) {
-	const [menu, setMenu] 			= useState(null);
+	//const [menu, setMenu] 			= useState(null);
 	const [menuOpen, setMenuOpen] 	= useState(false);
 	
 	const navItems = [
@@ -16,6 +18,11 @@ export default function Navigation({ isMobile }) {
 		{text: t('pages.images.title'), 	url: '/images'},
 		{text: t('pages.login.logout'), 	url: '/logout'} 
 	];
+	
+	const menu = [
+		<img src={imageLogo} className={styles.logo} />,
+		...(navItems.map((item, key) => <Link key={key} className={styles.navItem} to={item.url} onClick={closeOnClick}>{item.text}</Link>))
+	]
 
 	const renderMobile = () => {
 		return ( 
@@ -38,9 +45,9 @@ export default function Navigation({ isMobile }) {
 		setMenuOpen(false);
 	}
 
-	useEffect(() => {
-		setMenu(navItems.map((item, key) => <Link key={key} className={styles.navItem} to={item.url} onClick={closeOnClick}>{item.text}</Link>));
-	}, [])
+	// useEffect(() => {
+	// 	setMenu(navItems.map((item, key) => <Link key={key} className={styles.navItem} to={item.url} onClick={closeOnClick}>{item.text}</Link>));
+	// }, [])
 
 	if (isMobile)
 		return renderMobile();

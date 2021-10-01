@@ -2,6 +2,8 @@
 	width: 100%;
 	height: 3rem;
 	background-color: rgb(133, 133, 133);
+	display: flex;
+	justify-content: center;
 }
 
 // Items
@@ -19,7 +21,7 @@
 	}
 
 	&.menuOpen {
-		top: 0;
+		top: -2rem;
 	}
 	
 	&.menuClosed {
@@ -33,4 +35,10 @@
 	padding: 10px;
 	margin: 10px;
 	text-align: center;
+}
+
+.logo {
+	width: 2.5em;
+	height: auto;
+	margin: .25em auto;
 }
