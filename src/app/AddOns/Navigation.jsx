@@ -20,7 +20,7 @@ export default function Navigation({ isMobile }) {
 	];
 	
 	const menu = [
-		<img src={imageLogo} className={styles.logo} />,
+		<img key={'nav-logo'} src={imageLogo} className={styles.logo} />,
 		...(navItems.map((item, key) => <Link key={key} className={styles.navItem} to={item.url} onClick={closeOnClick}>{item.text}</Link>))
 	]
 
