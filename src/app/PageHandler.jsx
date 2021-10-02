@@ -4,6 +4,7 @@ import { isMobile } from 'react-device-detect';
 import Navigation from './AddOns/Navigation';
 import { UserContext } from '../index';
 import useJsonApi from 'utils/useJsonApi';
+import Loader from 'utils/Loader';
 
 import Home from './pages/Home';
 import Info from './pages/Info';
@@ -61,5 +62,5 @@ function Logout({ logout }) {
 		return <Redirect to='/' />
 
 	else
-		return null
+		return <Loader />
 }
