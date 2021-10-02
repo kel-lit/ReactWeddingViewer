@@ -1,7 +1,11 @@
 import React from 'react';
 
-export default function Loader(props) {
+import styles from './Loader.scss'
+
+export default function Loader() {
 	return (
-		<h1>Loading...</h1>
+		<div className={styles.loader}>
+			<div className={styles.squares}>{'&'}</div>
+		</div>
 	)
 }
