@@ -1,7 +1,9 @@
+@import "utils/variables";
+
 .navDiv {
 	width: 100%;
 	height: 3rem;
-	background-color: rgb(133, 133, 133);
+	background-color: $primary;
 	display: flex;
 	justify-content: center;
 }
@@ -13,7 +15,7 @@
 		display: flex;
 		margin-top: 2rem;
 		width: 100%;
-		background-color: rgb(131, 131, 131);
+		background-color: $primary;
 		flex-direction: column;
 		transition: all .3s ease;
 		user-select: none;
@@ -31,10 +33,16 @@
 
 
 .navItem {
+	all: unset;
+
 	width: calc(100% - 40px);
 	padding: 10px;
 	margin: 10px;
 	text-align: center;
+
+	&:hover {
+		background-color: darken($primary, 5%);
+	}
 }
 
 .logo {

@@ -25,7 +25,7 @@
 	z-index: 3;
 	
 	.heading_title {
-		font-size: 5em;
+		font-size: $heading-font-size;
 		font-family: "GreatVibes";
 	}
 
@@ -81,10 +81,13 @@
 		text-align: center;
 		padding: 8px;
 		border-radius: 0.5em;
+		display: contents;
 		
 		.input_label {
 			padding: 8px;
 			font-size: 24px;
+			width: $login-card-widths;
+			font-size: $content-font-size;
 		}
 	
 		.input {
@@ -93,6 +96,8 @@
 			margin: 8px;
 			padding: 8px;
 			border-bottom: 1px solid $accent;
+			font-size: $content-font-size;
+			width: $login-card-widths
 		}
 	
 		.button {
@@ -100,10 +105,11 @@
 
 			color: $font-color-inverse;
 			background-color: $accent;
-			min-width: 30%;
+			width: $login-card-widths;
 			padding: 8px;
 			border-radius: 4px;
 			border: 1px solid $font-color-lighter;
+			font-size: $content-font-size;
 		}
 	}
 }
