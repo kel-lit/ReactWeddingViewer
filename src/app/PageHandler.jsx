@@ -24,7 +24,7 @@ export default function PageHandler () {
 						<Info />
 					</Route>
 					<Route path='/rsvp'>
-						<RSVP />
+						<RSVP guestInfo={context.guestInfo} />
 					</Route>
 					<Route path='/location'>
 						<Location />

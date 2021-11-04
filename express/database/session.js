@@ -1,9 +1,9 @@
-const getDb 	= require('./database').getDb;
+const getDb = require('./database').getDb;
 
-async function createSession(guests) {
+async function createSession(code) {
 	let token = await createUniqueToken();
 
-	saveToken(token, (Math.round(new Date().getTime() / 1000) + 86400), guests);
+	saveToken(token, (Math.round(new Date().getTime() / 1000) + 86400), code);
 
 	return token;
 }
@@ -29,11 +29,11 @@ async function tokenExists(token) {
 	return !!doc;
 }
 
-function saveToken(token, expires, guests) {
+function saveToken(token, expires, code) {
 	const _db 		= getDb();
 	const sessions 	= _db.collection('sessions');
 
-	sessions.insertOne({token: token, expires: expires, guests: guests});
+	sessions.insertOne({token: token, expires: expires, code: code});
 }
 
 function createToken(length) {
@@ -49,14 +49,14 @@ async function checkSession(cookie) {
 	const _db 		= getDb();
 	const sessions	= _db.collection('sessions');
 
-	const session = await sessions.findOne({token: cookie}, {projection: {_id: 0, 'guests': 1, 'expires': 2}});
+	const session = await sessions.findOne({token: cookie}, {projection: {_id: 0, 'code': 1, 'expires': 2}});
 
 	if (!isSessionValid(session)) {
 		removeSession(cookie);
-		return { error: 'sessionexpired' };
+		return { isValid: false, error: 'sessionexpired' };
 	}
 
-	return session;
+	return {isValid: true, code: session.code};
 }
 
 function isSessionValid(session) {

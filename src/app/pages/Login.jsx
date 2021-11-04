@@ -34,7 +34,7 @@ export default function Login(props) {
 		if (!loginResponse) return;
 
 		if (loginResponse.result &&  loginResponse.result.success) {
-			context.setGuests(loginResponse.result.guests.map(obj => obj.name));
+			context.setGuestInfo(loginResponse.result)
 
 			context.login();
 		}

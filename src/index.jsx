@@ -12,8 +12,9 @@ const UserContext = React.createContext({});
 function App() {
 	const [session, checkLoading, checkError, checkSession] = useJsonApi('/api/login/checkForSession')
 
+	const [guestInfo, setGuestInfo]		= useState(null);
+
 	const [ready, setReady]				= useState(false);
-	const [guests, setGuests]			= useState(null);
 	const [isLoggedIn, setIsLoggedIn] 	= useState(true);
 
 	document.cookie = 'ksweddingviewer_language=' + GetLocale();
@@ -35,7 +36,7 @@ function App() {
 			
 			if (session.result.success) {
 				setIsLoggedIn(true);
-				setGuests(session.result.guests.map(obj => obj.name));
+				setGuestInfo(session.result);
 			}
 			else
 				setIsLoggedIn(false);
@@ -44,14 +45,14 @@ function App() {
 
 	if (ready && isLoggedIn) {
 		return (
-			<UserContext.Provider value={{logout: logout, guests: guests}}>
+			<UserContext.Provider value={{logout: logout, guestInfo: guestInfo}}>
 				<PageHandler />
 			</UserContext.Provider>
 		)
 	}
 	else if (ready) {
 		return (
-			<UserContext.Provider value={{ login: login, setGuests: setGuests }}>
+			<UserContext.Provider value={{ login: login, setGuestInfo: setGuestInfo }}>
 				<Login />
 			</UserContext.Provider>
 		)
