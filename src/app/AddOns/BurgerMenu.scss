@@ -14,6 +14,7 @@ $burger-width: 1.8rem;
 .menuIcon {
 	transition-timing-function: cubic-bezier(.55,.055,.675,.19);
     transition-duration: 75ms;
+	z-index: 100;
 
     &, &:before, &:after {
     	position: absolute;
