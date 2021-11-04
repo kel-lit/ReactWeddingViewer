@@ -1,7 +1,9 @@
-const Login 	= require('./Login')
 const routes 	= require('express').Router();
+const Login 	= require('./Login').loginRouter;
+const Update	= require('./Update').updateRouter;
 
 routes.use('/login', Login);
+routes.use('/update', Update)
 
 routes.get('/test', (req, res) => {
 	res.json({"Hello": "World!"});
