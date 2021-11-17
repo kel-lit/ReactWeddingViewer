@@ -20,10 +20,17 @@ export default function({ guestInfo }) {
 	
 	const [foodNotes, setFoodNotes]		= useState(guestInfo.foodNotes || "")
 
+	const updateFoodNotes = (value) => {
+		setHasChanges(state => ({
+			...state,
+			foodNotes: value
+		}))
+	}
+
 	const showSave = () => {
 		if (!hasChanges) return
 
-		return JSON.stringify(original) !== JSON.stringify(hasChanges) || foodNotes !== guestInfo.foodNotes
+		return JSON.stringify(original) !== JSON.stringify(hasChanges)
 	}
 
 	const doSaveChanges = () => {
@@ -47,6 +54,7 @@ export default function({ guestInfo }) {
 		original.foodNotes = foodNotes;
 
 		setOriginal(original)
+		setHasChanges(original)
 	}, [])
 
 	useEffect(() => {
@@ -64,7 +72,7 @@ export default function({ guestInfo }) {
 					<RSVPTable guests={guestInfo.guests} />
 				</ChangesContext.Provider>
 
-				<TextArea className={styles.food_notes} maxLength={200} placeholder={t('pages.rsvp.textareaplaceholder')} getContent={setFoodNotes} value={foodNotes} />
+				<TextArea className={styles.food_notes} maxLength={200} placeholder={t('pages.rsvp.textareaplaceholder')} getContent={setFoodNotes} value={foodNotes} onChange={updateFoodNotes} />
 
 				<div className={styles.key}>
 					<div className={styles.key_block}>

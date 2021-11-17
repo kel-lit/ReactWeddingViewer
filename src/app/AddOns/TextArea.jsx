@@ -7,7 +7,12 @@ export default function (props) {
 	const [content, setContent]		= useState(null)
 	const [charCount, setCharCount] = useState(0)
 
-	const { className, placeholder, maxLength, value, ...otherProps } = props
+	const { className, placeholder, maxLength, value, onChange, ...otherProps } = props
+
+	const change = (value) => {
+		setContent(value)
+		onChange(value)
+	} 
 
 	useEffect(() => {
 		props.getContent(content)
@@ -21,7 +26,7 @@ export default function (props) {
 						placeholder={placeholder || ''} 
 						onClick={() => setActive(true)} 
 						onBlur={() => setActive(false)} 
-						onChange={e => setContent(e.target.value)} 
+						onChange={e => change(e.target.value)} 
 						value={value || ''} />
 			
 			{ active &&
