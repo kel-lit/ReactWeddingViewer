@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import PageLayout, { PageHeading, PageContent, PageDivider } from '../AddOns/PageLayout'
+import PageLayout, { PageHeading, PageDivider } from '../AddOns/PageLayout'
 import Toggle from '../AddOns/Toggle'
 import TextArea from '../AddOns/TextArea'
 import Loader from 'utils/Loader'
