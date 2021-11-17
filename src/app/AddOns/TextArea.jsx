@@ -15,7 +15,6 @@ export default function (props) {
 	} 
 
 	useEffect(() => {
-		props.getContent(content)
 		setCharCount((content || "").length || 0)
 	}, [content])
 

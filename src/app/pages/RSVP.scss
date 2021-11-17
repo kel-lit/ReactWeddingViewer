@@ -82,12 +82,15 @@
 
 	position: absolute;
 	padding: 5px 10px;
-	border: 1px solid grey;
+	border: 1px solid darken($toggle-on-color, 5%);
 	border-radius: 4px;
-	color: grey;
-	background-color: $primary;
+	color: $font-color-primary;
+	background-color: $toggle-on-color;
 	
-	bottom: 10px;
-	right: 10px;
+	bottom: 20px;
+	right: 20px;
 
+	&:disabled {
+		background-color: $disabled-color;
+	}
 }

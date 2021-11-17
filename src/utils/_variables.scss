@@ -10,8 +10,8 @@ $font-color-inverse: white;
 
 $toggle-off-color: lighten($secondary, 5%);
 $toggle-on-color: lighten($primary, 5%);
-$toggle-disabled-color: rgb(201, 201, 201);
-$toggle-center-color: $toggle-disabled-color;
+$disabled-color: rgb(201, 201, 201);
+$toggle-center-color: $disabled-color;
 
 //Widths
 $login-card-widths: 30vw;

@@ -4,20 +4,20 @@ const checkSession 		= require('../database/session').checkSession;
 const getCookieSection 	= require('../utils/getCookieSection');
 
 updateRouter.post('/', async (req, res) => {
-	const info = await checkSession(getCookieSection(req.headers.cookie, 'ksweddingviewer_session'));
+	const session = await checkSession(getCookieSection(req.headers.cookie, 'ksweddingviewer_session'));
 
-	if (!info.isValid) 
+	if (!session.isValid)
 		res.json({body: {success: false, error: 'sessionexpired'}})
 	else {
 		const _db 	= getDb();
 		const users	= _db.collection('users');
 
-		const successful = await users.updateOne({code: info.code}, {$set: {guests: req.body.data.guests, foodNotes: req.body.data.foodNotes}})
+		const successful = await users.updateOne({code: session.code}, {$set: {guests: req.body.data.guests, foodNotes: req.body.data.foodNotes.slice(0, 200)}})
 
-		if (successful.acknowledge) 
-			res.json({success: true})
-		else 
-			res.json({success: false, message: 'pages.rvsp.failedtoupdate'})
+		if (successful.result.ok)
+			res.json({body: {success: true}})
+		else
+			res.json({body: {success: false, message: 'pages.rvsp.failedtoupdate'}})
 	}
 })
 

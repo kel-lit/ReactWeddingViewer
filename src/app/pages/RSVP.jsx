@@ -17,8 +17,8 @@ export default function({ guestInfo }) {
 
 	const [original, setOriginal]		= useState(null)
 	const [hasChanges, setHasChanges] 	= useState(null)
-	
-	const [foodNotes, setFoodNotes]		= useState(guestInfo.foodNotes || "")
+
+	const [saveLoading, setSaveLoading] = useState(false)
 
 	const updateFoodNotes = (value) => {
 		setHasChanges(state => ({
@@ -37,28 +37,37 @@ export default function({ guestInfo }) {
 		const guests 			= guestInfo.guests
 		const newGuestsArray 	= guests
 
+		setSaveLoading(true)
+
 		for (const key in hasChanges) {
 			newGuestsArray[key] = {...guests[key], isAttending: hasChanges[key].attending, isVegetarian: hasChanges[key].vegetarian}
 		}
 
-		saveChanges({data: {guests: newGuestsArray, foodNotes: foodNotes}});
+		saveChanges({data: {guests: newGuestsArray, foodNotes: hasChanges.foodNotes}})
 	}
 
 	useEffect(() => {
-		const original = {}
+		const original = {"foodNotes": guestInfo.foodNotes || ""}
 
 		guestInfo.guests.forEach((guest, index) => {
 			original[index] = {attending: guest.isAttending, vegetarian: guest.isVegetarian}
 		})
-
-		original.foodNotes = foodNotes;
 
 		setOriginal(original)
 		setHasChanges(original)
 	}, [])
 
 	useEffect(() => {
-		
+		if (!response) return
+
+		if (response.result) {
+			setSaveLoading(false)
+
+			if (response.result.success)
+				setOriginal(hasChanges)
+			else
+				console.log(response.message)
+		}
 	}, [response])
 
 	if (original) {
@@ -72,7 +81,7 @@ export default function({ guestInfo }) {
 					<RSVPTable guests={guestInfo.guests} />
 				</ChangesContext.Provider>
 
-				<TextArea className={styles.food_notes} maxLength={200} placeholder={t('pages.rsvp.textareaplaceholder')} getContent={setFoodNotes} value={foodNotes} onChange={updateFoodNotes} />
+				<TextArea className={styles.food_notes} maxLength={200} placeholder={t('pages.rsvp.textareaplaceholder')} value={hasChanges.foodNotes || ""} onChange={updateFoodNotes} />
 
 				<div className={styles.key}>
 					<div className={styles.key_block}>
@@ -85,7 +94,7 @@ export default function({ guestInfo }) {
 					</div>
 				</div>
 
-				{ showSave() && <button className={styles.save_button} onClick={doSaveChanges} >{t('pages.rsvp.save')}</button> }
+				<button className={styles.save_button} disabled={saveLoading} onClick={doSaveChanges} style={{"display": showSave() ? "block" : "none"}} >{t('pages.rsvp.save')}</button>
 			</PageLayout>
 		)
 	}
