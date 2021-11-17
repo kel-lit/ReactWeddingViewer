@@ -33,7 +33,9 @@
 			"vegetarian": "Vegetarian",
 
 			"allday": "All Day", 
-			"evening": "Evening"
+			"evening": "Evening",
+
+			"save": "Save"
 		},
 		
 		"location": {
