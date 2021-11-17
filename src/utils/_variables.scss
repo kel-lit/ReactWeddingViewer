@@ -6,7 +6,12 @@ $error: rgb(230, 89, 89);
 
 $font-color-primary: rgb(0, 0, 0);
 $font-color-lighter: lighten($font-color-primary, .3);
-$font-color-inverse: rgba(226,215,204,255);
+$font-color-inverse: white;
+
+$toggle-off-color: lighten($secondary, 5%);
+$toggle-on-color: lighten($primary, 5%);
+$toggle-disabled-color: rgb(201, 201, 201);
+$toggle-center-color: $toggle-disabled-color;
 
 //Widths
 $login-card-widths: 30vw;

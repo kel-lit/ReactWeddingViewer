@@ -23,7 +23,17 @@
 		},
 
 		"rsvp": {
-			"title": "RSVP"
+			"title": "RSVP",
+
+			"textareaplaceholder": "Food notes",
+
+			"name": "Name",
+			"guesttype": "Invite",
+			"attending": "Attendance",
+			"vegetarian": "Vegetarian",
+
+			"allday": "All Day", 
+			"evening": "Evening"
 		},
 		
 		"location": {
@@ -32,6 +42,12 @@
 
 		"images": {
 			"title": "Images"
+		}
+	},
+	"utils": {
+		"toggle": {
+			"yes": "Yes",
+			"no": "No"
 		}
 	}
 }

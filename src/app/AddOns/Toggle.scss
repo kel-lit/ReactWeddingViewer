@@ -1,0 +1,73 @@
+@import "utils/variables";
+
+.toggle_container {
+	position: relative;
+}
+
+.toggle_outer {
+	position: absolute;
+	border: 1px solid darken($primary, 5%);
+	cursor: pointer;
+	user-select: none;
+
+	&.disabled {
+		cursor: default;
+		background-color: $toggle-disabled-color;
+		border: 1px solid darken($toggle-disabled-color, 5%) !important;
+	}
+
+	&.center {
+		background-color: $toggle-center-color;
+		border: 1px solid darken($toggle-center-color, 5%) !important;
+	}
+
+	&.off {
+		background-color: $toggle-off-color;
+		border: 1px solid darken($toggle-off-color, 5%) !important;
+	}
+
+	&.on {
+		background-color: $toggle-on-color;
+		border: 1px solid darken($toggle-on-color, 5%) !important;
+	}
+}
+
+.toggle_text {
+	position: relative;
+	transition: all .3s ease;
+	top: 3px;
+	left: 21px;
+	user-select: none;
+	
+	&.disabled {
+		
+	}
+	
+	&.center {
+		
+	}
+	
+	&.off {
+		color: $font-color-inverse;
+		left: 4px;
+	}
+	
+	&.on {
+		color: $font-color-primary;
+		left: 35px;
+	}
+}
+
+.toggle {
+	position: absolute;
+	box-shadow: 0 0 0 2px rgb(209, 209, 209);
+	background-color: rgb(238, 238, 238);
+	user-select: none;
+	top: 0;
+
+	transition: all 0.3s ease;
+
+	&.disabled {
+		background-color: $toggle-disabled-color;
+	}
+}
