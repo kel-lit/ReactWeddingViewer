@@ -21,7 +21,15 @@
 		},
 
 		"info": {
-			"title": "Information"
+			"title": "Information",
+
+			"timeinfo": "Put here information about the day. What time should guests arrive? What time does the ceremony start? What happens after? What time is the wedding breakfast? What time do the evening guests arrive?",
+			"foodinfo": "What's for dins?",
+			"bandinfo": "Who's the band?",
+			"bandinfolink": "You can find them here",
+			"songrequests": "Got some songs you'd like to hear? Leave them below",
+			"songrequestsplaceholder": "Leave your song requests",
+			"savesongrequest": "Save"
 		},
 
 		"rsvp": {

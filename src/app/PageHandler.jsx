@@ -21,7 +21,7 @@ export default function PageHandler () {
 				<Navigation isMobile={isMobile} />
 				<Switch>
 					<Route path='/information'>
-						<Info />
+						<Info songRequests={context.guestInfo.songRequests} />
 					</Route>
 					<Route path='/rsvp'>
 						<RSVP guestInfo={context.guestInfo} />

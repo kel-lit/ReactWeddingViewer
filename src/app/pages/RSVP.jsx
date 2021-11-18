@@ -13,7 +13,7 @@ import imageEvening from 'images/evening.png'
 const ChangesContext = React.createContext({})
 
 export default function({ guestInfo }) {
-	const [response, loading, error, saveChanges] = useJsonApi('/api/update')
+	const [response, loading, error, saveChanges] = useJsonApi('/api/update/rsvp')
 
 	const [original, setOriginal]		= useState(null)
 	const [hasChanges, setHasChanges] 	= useState(null)

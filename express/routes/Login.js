@@ -41,7 +41,7 @@ loginRouter.get('/logout', async (req, res) => {
 async function getUserInfo(code) {
 	const users = getDb().collection('users');
 
-	return await users.findOne({code: code}, {projection: {_id: 0, 'guests': 1, foodNotes: 2}});
+	return await users.findOne({code: code}, {projection: {_id: 0, guests: 1, foodNotes: 2, songRequests: 3}});
 }
 
 module.exports = {

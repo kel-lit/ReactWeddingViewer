@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Login from './app/pages/Login';
 import PageHandler from './app/PageHandler';
 import useJsonApi from 'utils/useJsonApi';
-import Loader from 'utils/Loader';
+import Loader from 'utils/Loader'; 
 import GetLocale from 'utils/GetLocale';
 
 const tokenCookie = 'ksweddingviewer_token';
@@ -45,7 +45,7 @@ function App() {
 
 	if (ready && isLoggedIn) {
 		return (
-			<UserContext.Provider value={{logout: logout, guestInfo: guestInfo}}>
+			<UserContext.Provider value={{logout: logout, guestInfo: guestInfo, setGuestInfo: setGuestInfo}}>
 				<PageHandler />
 			</UserContext.Provider>
 		)
