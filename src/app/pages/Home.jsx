@@ -15,7 +15,9 @@ export default function Home () {
 			
 			<PageDivider />
 
-			<PageContent value={'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum sapiente facere quis esse corporis libero eaque quo animi odio est aperiam omnis cumque consequatur hic saepe, id quisquam consectetur minus.'} />
+			<PageContent>
+				{t('pages.home.maincontent')}
+			</PageContent>
 		</PageLayout>
 	)
 }
