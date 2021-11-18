@@ -1,0 +1,16 @@
+.mapOuter {
+	position: relative;
+	text-align: right;
+	width: 100%;
+	height: 400px;
+	margin-bottom: 16px;
+}
+
+.mapCanvas {
+	position: relative;
+	overflow: hidden;
+	background: none !important;
+	width: 100%;
+	height: 400px;
+	z-index: 0;
+}
