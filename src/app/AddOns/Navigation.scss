@@ -36,14 +36,26 @@
 .navItem {
 	all: unset;
 
+	position: relative;
 	width: calc(100% - 40px);
 	padding: 10px;
 	margin: 10px;
 	text-align: center;
+	z-index: 99;
 
 	&:hover {
 		background-color: darken($primary, 5%);
 	}
+}
+
+.navMask {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 98;
+	background-color: rgba(0, 0, 0, 0.9);
 }
 
 .logo {
