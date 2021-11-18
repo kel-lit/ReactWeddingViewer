@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import BurgerMenu from './BurgerMenu';
 
@@ -7,7 +7,6 @@ import styles from './Navigation.scss';
 import imageLogo from 'images/logo.png';
 
 export default function Navigation({ isMobile }) {
-	//const [menu, setMenu] 			= useState(null);
 	const [menuOpen, setMenuOpen] 	= useState(false);
 	
 	const navItems = [
