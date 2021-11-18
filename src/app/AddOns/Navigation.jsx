@@ -42,7 +42,8 @@ export default function Navigation({ isMobile }) {
 	}
 
 	const closeOnClick = () => {
-		setMenuOpen(false);
+		setMenuOpen(false)
+		document.body.style.overflow = "auto"
 	}
 
 	if (isMobile)
