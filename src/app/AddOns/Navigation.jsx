@@ -23,6 +23,15 @@ export default function Navigation({ isMobile }) {
 		...(navItems.map((item, key) => <Link key={key} className={styles.navItem} to={item.url} onClick={() => closeOnClick()}>{item.text}</Link>)),
 	]
 
+	const doSetMenuOpen = (value) => {
+		if (value)
+			document.body.style.overflow = "hidden"
+		else
+			document.body.style.overflow = "auto"
+
+		setMenuOpen(value)
+	}
+
 	const renderMobile = () => {
 		return ( 
 			<div className={styles.navDiv}>
@@ -30,7 +39,7 @@ export default function Navigation({ isMobile }) {
 					{ menu }
 				</div>
 				{ menuOpen && <div className={styles.navMask} />}
-				<BurgerMenu active={menuOpen} callback={setMenuOpen} />
+				<BurgerMenu active={menuOpen} callback={doSetMenuOpen} />
 			</div>
 		)
 	}
@@ -42,8 +51,7 @@ export default function Navigation({ isMobile }) {
 	}
 
 	const closeOnClick = () => {
-		setMenuOpen(false)
-		document.body.style.overflow = "auto"
+		doSetMenuOpen(false)
 	}
 
 	if (isMobile)
