@@ -15,7 +15,9 @@
 		},
 
 		"home": {
-			"title": "Home"
+			"title": "Home",
+			
+			"maincontent": "Lorem Ipsum"
 		},
 
 		"info": {
@@ -39,11 +41,16 @@
 		},
 		
 		"location": {
-			"title": "Location"
+			"title": "Location",
+
+			"maincontent": "Some info about the place",
+			"locationdescription": "Location Desciption - Just off the M1 blah blah"
 		},
 
 		"images": {
-			"title": "Images"
+			"title": "Images",
+
+			"maincontent": "Once the Wedding photos are available, we'll let everyone know and you'll be able to view them here"
 		}
 	},
 	"utils": {
