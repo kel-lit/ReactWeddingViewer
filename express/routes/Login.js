@@ -7,15 +7,18 @@ const getCookieSection 	= require('../utils/getCookieSection');
 
 loginRouter.post('/', async (req, res) => { 
 	const _db 	= getDb();
-	const users = _db.collection('users');
 
 	const tokenPromise 		= createSession(req.body.code);
 	const userInfoPromise 	= getUserInfo(req.body.code);
 
 	const [token, userInfo] = await Promise.all([tokenPromise, userInfoPromise])
-	
-	res.cookie('ksweddingviewer_session', token, {httpOnly: true});
-	res.json({body: {success: true, ...userInfo}});
+
+	if (userInfo) {
+		res.cookie('ksweddingviewer_session', token, {httpOnly: true});
+		res.json({body: {success: true, ...userInfo}});
+	}
+	else
+		res.json({body: {success: false, error: 'pages.login.errors.codenotfound'}})
 })
 
 loginRouter.get('/checkForSession', async (req, res) => { 
