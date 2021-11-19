@@ -64,9 +64,8 @@ export default function Login(props) {
 								onFocus={() => setInputActive(true)} 
 								onBlur={() => setInputActive(false)} 
 								onChange={(e) => setCode(e.target.value)} 
-								placeholder={!inputActive ? t('pages.login.codeinput') : ''} 
-								autoCapitalize='None'
-								autoCorrect='off' />
+								placeholder={!inputActive ? t('pages.login.codeinput') : ''}
+								type='url' />
 
 							{ error && <div className={styles.error}>{error}</div> }
 							<Button className={styles.button} onClick={doLogin} text={t('pages.login.login')} />
