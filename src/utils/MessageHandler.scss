@@ -1,0 +1,79 @@
+@import 'utils/variables';
+
+.handlerOuter {
+	position: absolute;
+	bottom: 16px;
+	height: 80px;
+	width: 240px;
+	border: 1px solid rgba(#aaa, 0.7);
+	border-radius: 4px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: lighten($primary, 20);
+
+	&.incoming {
+		animation-duration: 1s;
+		animation-name: popIn;
+		animation-iteration-count: 1;
+	}
+
+	&.outgoing {
+		animation-duration: 1s;
+		animation-name: popOut;
+		animation-iteration-count: 1;
+	}
+}
+
+.handlerStrap {
+	width: 100%;
+	height: 16px;
+
+	&.info {
+		background-color: $primary;
+	}
+
+	&.error {
+		background-color: $error;
+	}
+}
+
+.textContainer {
+	margin: 0 8px;
+
+	& .handlerTitle {
+		font-size: 1.4em;
+	}
+	
+	& .handlerText {
+		
+	}
+}
+
+
+@keyframes popIn {
+	0% {
+		bottom: -100%;
+	}
+
+	80% {
+		bottom: 20px;
+	}
+
+	100% {
+		bottom: 16px;
+	}
+}
+
+@keyframes popOut {
+	0% {
+		bottom: 16px;
+	}
+	
+	20% {
+		bottom: 20px;
+	}
+	
+	100% {
+		bottom: -100%;
+	}
+}
