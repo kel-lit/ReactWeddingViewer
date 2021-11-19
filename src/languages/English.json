@@ -1,6 +1,7 @@
 {	
 	"common": {
-		"error": "Error"
+		"error": "Error",
+		"changessaved": "Changes saved"
 	},
 
 	"pages": {
