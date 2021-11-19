@@ -3,6 +3,7 @@ import TextArea from '../AddOns/TextArea'
 import PageLayout, { PageHeading, PageContent, PageDivider, PageContentImage } from '../AddOns/PageLayout'
 import useJsonApi from 'utils/useJsonApi'
 import { UserContext } from '../../index'
+import MessageHandler from 'utils/MessageHandler'
 
 import styles from './Info.scss'
 
@@ -11,6 +12,8 @@ import imageBand from 'images/info-band.jpg'
 
 export default function(props) {
 	const [response, loading, error, request] = useJsonApi('/api/update/information')
+
+	const [message, setMessage] = useState(null)
 
 	const [original, setOriginal] = useState(props.songRequests || '')
 	const [songRequests, setSongRequests] = useState(props.songRequests || '')
@@ -29,9 +32,10 @@ export default function(props) {
 		if (response.result.success) {
 			setOriginal(songRequests)
 			context.setGuestInfo(state => ({...state, songRequests: songRequests}))
+			setMessage({message: t('common.changessaved'), type: 'info'})
 		}
 		else if (!response.result.success)
-			console.log(t(response.result.error))
+			setMessage({title: t('common.error'), message: t(response.result.error), type: 'error'})
 	}, [response])
 	
 	return (
@@ -46,6 +50,8 @@ export default function(props) {
 
 				{t('pages.info.foodinfo')}
 
+				{t('pages.info.hotelinfo')}
+
 				{t('pages.info.bandinfo')}
 
 				<PageContentImage src={imageBand} />
@@ -57,6 +63,8 @@ export default function(props) {
 					<button className={styles.songRequestButton} disabled={buttonDisabled()} onClick={doRequest} >{t('pages.info.savesongrequest')}</button>
 				</div>
 			</PageContent>
+
+			<MessageHandler message={message || {}} close={() => setMessage(null)} />
 		</PageLayout>
 	)
 }

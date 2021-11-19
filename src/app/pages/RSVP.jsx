@@ -4,6 +4,7 @@ import Toggle from '../AddOns/Toggle'
 import TextArea from '../AddOns/TextArea'
 import Loader from 'utils/Loader'
 import useJsonApi from 'utils/useJsonApi'
+import MessageHandler from 'utils/MessageHandler'
 
 import styles from './RSVP.scss'
 
@@ -15,6 +16,7 @@ const ChangesContext = React.createContext({})
 export default function({ guestInfo }) {
 	const [response, loading, error, saveChanges] = useJsonApi('/api/update/rsvp')
 
+	const [message, setMessage]			= useState(null)
 	const [original, setOriginal]		= useState(null)
 	const [hasChanges, setHasChanges] 	= useState(null)
 
@@ -63,10 +65,12 @@ export default function({ guestInfo }) {
 		if (response.result) {
 			setSaveLoading(false)
 
-			if (response.result.success)
+			if (response.result.success) {
 				setOriginal(hasChanges)
+				setMessage({message: t('common.changessaved'), type: 'info'})
+			}
 			else
-				console.log(response.message)
+				setMessage({title: t('common.error'), message: t(response.result.error), type: 'error'})
 		}
 	}, [response])
 
@@ -95,6 +99,8 @@ export default function({ guestInfo }) {
 				</div>
 
 				<button className={styles.save_button} disabled={saveLoading} onClick={doSaveChanges} style={{"display": showSave() ? "block" : "none"}} >{t('pages.rsvp.save')}</button>
+
+				<MessageHandler message={message || {}} close={() => setMessage(null)} />
 			</PageLayout>
 		)
 	}
