@@ -1,4 +1,8 @@
-{
+{	
+	"common": {
+		"error": "Error"
+	},
+
 	"pages": {
 		"login": {
 			"title": "Welcome",
@@ -9,7 +13,7 @@
 			"errors": {
 				"tooshort": "Code is too short",
 				"toolong": "Code is too long",
-				"codenotfound": "Code not found"
+				"codenotfound": "That code is invalid"
 			},
 			"logout": "Logout"
 		},
