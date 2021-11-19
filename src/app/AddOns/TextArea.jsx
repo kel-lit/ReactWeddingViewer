@@ -30,7 +30,7 @@ export default function (props) {
 			
 			{ active &&
 			<div className={styles.char_count}>
-				{ charCount }/{maxLength}
+				{charCount}/{maxLength}
 			</div> }
 		</div>
 	)
