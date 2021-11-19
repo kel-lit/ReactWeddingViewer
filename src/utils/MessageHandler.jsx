@@ -21,13 +21,13 @@ export default function({ message, close }) {
 			}, 500)
 
 			setThisTimeout(null)
-		}, 4000))
+		}, 3000))
 
 		return () => window.clearTimeout(thisTimeout)
 	}, [message])
 
 	const getHandler = () => {
-		if (JSON.stringify(message) !== "{}") {
+		if (JSON.stringify(message) !== "{}" && (message.title || message.message)) {
 			const outerStyles = styles.handlerOuter + ' ' + (animateIn ? styles.incoming : styles.outgoing)
 			const strapStyles = styles.handlerStrap + ' ' + (message.type === 'error' ? styles.error : styles.info)
 
@@ -35,8 +35,8 @@ export default function({ message, close }) {
 				<div className={outerStyles}>
 					<div className={strapStyles} />
 					<div className={styles.textContainer}>
-						<div className={styles.handlerTitle}>{message.title}</div>
-						<div className={styles.handlerMessage}>{message.message}</div>
+						{ message.title && <div className={styles.handlerTitle}>{message.title}</div> }
+						{ message.message && <div className={styles.handlerMessage}>{message.message}</div> }
 					</div>
 				</div>
 			)
