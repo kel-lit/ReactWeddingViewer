@@ -7,16 +7,17 @@
 }
 
 .login_body {
-
-}
-
-.form {
-	height: 100vh;
+	height: 100%;
 	background-color: $primary;
 }
 
+.form {
+	height: 100%;
+	min-height: 600px;
+}
+
 .heading {
-	top: 1.4em;
+	top: 60px;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -68,7 +69,7 @@
 .input_container {
 	width: 100%;
 	height: 30vh;
-	bottom: 0;
+	bottom: 80px;
 	position: absolute;
 	z-index: 3;
 	display: flex;
@@ -77,11 +78,12 @@
 	align-items: center;
 	
 	.input_card{
-		width: 60%;
 		text-align: center;
 		padding: 8px;
-		border-radius: 0.5em;
+		width: 60%;
+		height: 80px;
 		display: contents;
+		background-color: $primary;
 		
 		.input_label {
 			padding: 8px;
@@ -97,7 +99,9 @@
 			padding: 8px;
 			border-bottom: 1px solid $accent;
 			font-size: $content-font-size;
-			width: $login-card-widths
+			width: 120px;
+			min-width: 120px;
+
 		}
 	
 		.button {
@@ -105,7 +109,7 @@
 
 			color: $font-color-inverse;
 			background-color: $accent;
-			width: $login-card-widths;
+			width: 120px;
 			padding: 8px;
 			border-radius: 4px;
 			border: 1px solid $font-color-lighter;
