@@ -3,7 +3,7 @@ import PageLayout, { PageHeading, PageContent, PageDivider, PageContentImage } f
 
 import styles from './Location.scss'
 
-import imageCeremonyRoom from 'images/location-ceremony-room.jpg'
+import imageCourtyard from 'images/location-courtyard.jpg'
 import imageReceptionRoom from 'images/location-reception-room.jpg'
 
 export default function(props) {
@@ -16,7 +16,7 @@ export default function(props) {
 			<PageContent>
 				{t('pages.location.maincontent')}
 
-				<PageContentImage src={imageCeremonyRoom} />
+				<PageContentImage src={imageCourtyard} />
 
 				{t('pages.location.locationdescription')}
 
