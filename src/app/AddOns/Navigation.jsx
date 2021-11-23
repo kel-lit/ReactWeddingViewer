@@ -18,13 +18,17 @@ export default function Navigation({ isMobile }) {
 		{text: t('pages.login.logout'), 	url: '/logout'} 
 	];
 	
-	const menu = [
+	const mobileMenu = [
 		<img key={'nav-logo'} src={imageLogo} className={styles.logo} />,
 		...(navItems.map((item, key) => <Link key={key} className={styles.navItem} to={item.url} onClick={() => closeOnClick()}>{item.text}</Link>)),
 	]
 
+	const desktopMenu = [
+		...(navItems.map((item, key) => <Link key={key} className={styles.navItemDekstop} to={item.url} onClick={() => closeOnClick()}>{item.text}</Link> ))
+	]
+
 	const doSetMenuOpen = (value) => {
-		if (value)
+		if (value) // Disable scrolling while menu is open
 			document.body.style.overflow = "hidden"
 		else
 			document.body.style.overflow = "auto"
@@ -36,7 +40,7 @@ export default function Navigation({ isMobile }) {
 		return ( 
 			<div className={styles.navDiv}>
 				<div className={[styles.itemDiv, menuOpen ? styles.menuOpen : styles.menuClosed].join(' ')}>
-					{ menu }
+					{ mobileMenu }
 				</div>
 				{ menuOpen && <div className={styles.navMask} />}
 				<BurgerMenu active={menuOpen} callback={doSetMenuOpen} />
@@ -45,8 +49,18 @@ export default function Navigation({ isMobile }) {
 	}
 
 	const renderBrowser = () => {
+		const logout = navItems.at(-1)
+
 		return (
-			<h1>Browser view</h1> 
+			<div className={styles.navDiv}>
+				<div className={styles.desktopMenuContainer}>
+					<img className={styles.logo} src={imageLogo} />
+					<div className={styles.menuItemsContainer}>
+						{ desktopMenu.slice(0, -1) }
+					</div>
+					<Link className={styles.navItemDekstop} to={logout.url} onClick={() => closeOnClick()}>{logout.text}</Link>
+				</div>
+			</div>
 		)
 	}
 

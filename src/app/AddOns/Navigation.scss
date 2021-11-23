@@ -63,3 +63,31 @@
 	height: auto;
 	margin: .25em auto;
 }
+
+.desktopMenuContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+
+	& .logo {
+		margin: .25em 15px;
+	}
+}
+
+.menuItemsContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.navItemDekstop {
+	all: unset;
+
+	padding: 10px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: darken($primary, 5);
+	}
+}
