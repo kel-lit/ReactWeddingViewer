@@ -8,6 +8,8 @@ export default function({ message, close }) {
 	const [animateIn, setAnimateIn] = useState(false)
 
 	useEffect(() => {
+		if (!message) return 
+
 		if (thisTimeout)
 			window.clearTimeout(thisTimeout)
 
@@ -15,13 +17,12 @@ export default function({ message, close }) {
 
 		setThisTimeout(setTimeout(() => {
 			setAnimateIn(false)
-			
-			setTimeout(() => {
-				close()
-			}, 500)
-
 			setThisTimeout(null)
 		}, 3000))
+
+		setThisTimeout(setTimeout(() => {
+			close()
+		}, 3500))
 
 		return () => window.clearTimeout(thisTimeout)
 	}, [message])
