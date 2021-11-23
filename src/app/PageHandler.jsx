@@ -15,6 +15,11 @@ import Images from './pages/Images';
 export default function PageHandler () {
 	const context = useContext(UserContext);
 
+	if (!isMobile)
+		document.getElementById('root').setAttribute('min-width', '600px')
+	else
+		document.getElementById('root').removeAttribute('min-width')
+
 	return (
 		<>
 			<Router>
