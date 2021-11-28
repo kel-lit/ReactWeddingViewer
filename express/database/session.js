@@ -66,7 +66,7 @@ function isSessionValid(session) {
 function removeSession(session) {
 	const sessions = getDb().collection('sessions');
 
-	return sessions.remove({token: session});
+	return sessions.deleteOne({token: session});
 }
 
 module.exports = { createSession, checkSession, removeSession };
