@@ -3,6 +3,8 @@
 
 .layout {
 	width: 90%;
+	max-width: 800px;
+	min-width: 600px;
 	display: flex;
 	flex-direction: column;
 
@@ -68,12 +70,12 @@
 
 .expandedImage {
 	width: 100%;
+	max-width: 900px;
 	position: fixed;
 	z-index: 2;
-	left: 0; 
-	top: 0;
+	left: 50%;
 	top: 50%;
-	transform: translateY(-50%);
+	transform: translate(-50%, -50%);
 	z-index: 100;
 	
 	&.visible {
