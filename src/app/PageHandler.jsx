@@ -1,10 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import { isMobile } from 'react-device-detect';
+// import { isMobile } from 'react-device-detect';
 import Navigation from './AddOns/Navigation';
 import { UserContext } from '../index';
 import useJsonApi from 'utils/useJsonApi';
 import Loader from 'utils/Loader';
+import useWindowDimensions from 'utils/useWindowDimensions';
 
 import Home from './pages/Home';
 import Info from './pages/Info';
@@ -13,7 +14,8 @@ import Location from './pages/Location';
 import Images from './pages/Images';
 
 export default function PageHandler () {
-	const context = useContext(UserContext);
+	const context 	= useContext(UserContext);
+	const isMobile 	= useWindowDimensions().width > 600 ? true : false
 
 	if (!isMobile)
 		document.getElementById('root').setAttribute('min-width', '600px')
