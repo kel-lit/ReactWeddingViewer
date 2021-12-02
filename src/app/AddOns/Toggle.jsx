@@ -6,7 +6,7 @@ export default function ({ disabled, value, onClick }) {
 	const [togglePosition, setTogglePosition] = useState(value !== 'pending' ? value : null)
 
 	const toggleOuterSize 	= {width: 64, height: 28}
-	const toggleInfo 		= {width: toggleOuterSize.height - 6, height: toggleOuterSize.height - 6, margin: 3, borderRadius: toggleOuterSize.height / 2}
+	const toggleInfo 		= {width: toggleOuterSize.height - 7, height: toggleOuterSize.height - 7, margin: 4, borderRadius: toggleOuterSize.height / 2}
 
 	const getToggleStyle = () => ({...toggleInfo, left: getToggleLeftOffset(togglePosition !== null && !disabled ? (togglePosition ? 'left' : 'right') : 'centre' )})
 
