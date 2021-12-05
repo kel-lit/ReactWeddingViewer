@@ -32,7 +32,7 @@ updateRouter.post('/information', async (req, res) => {
 
 		const successful = await users.updateOne({code: session.code}, {$set: {songRequests: req.body.data.songRequests}})
 
-		if (successful.result.ok)
+		if (successful.modifiedCount)
 			res.json({body: {success: true}})
 		else
 			res.json({body: {success: false, message: 'pages.info.failedtoupdate'}})
