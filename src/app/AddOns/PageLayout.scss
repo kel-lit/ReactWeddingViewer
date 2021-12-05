@@ -4,18 +4,26 @@
 .layout {
 	width: 90%;
 	max-width: 800px;
-	min-width: 600px;
 	display: flex;
 	flex-direction: column;
 
 	margin: 0 auto;
 	overflow-x: hidden;
+
+	&.mobile {
+		min-width: 300px;
+	}
+
+	&.desktop {
+		min-width: 600px;
+	}
 }
 
 .pageHeading {
-	width: 100%;
+	width: 95%;
 	text-align: center;
 	font-size: $heading-font-size;
+	margin: 0 auto;
 	margin-top: 10px;
 
 	font-family: 'GreatVibes';

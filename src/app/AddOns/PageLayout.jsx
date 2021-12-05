@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { isMobile } from 'react-device-detect';
 
 import styles from './PageLayout.scss'
 
@@ -30,7 +31,7 @@ function PageDivider() {
 }
 
 export default function PageLayout({ children }) {
-	return <div className={styles.layout}>
+	return <div className={styles.layout + ' ' + (isMobile ? styles.mobile : styles.desktop)}>
 		{ children }
 	</div>
 }
