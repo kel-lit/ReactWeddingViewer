@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import PageLayout, { PageHeading, PageContent, PageDivider } from '../AddOns/PageLayout';
+import PageLayout, { PageHeading, PageSubHeading, PageContent, PageDivider } from '../AddOns/PageLayout';
 import NameJoiner from 'utils/NameJoiner';
 
 import { UserContext } from '../../index';
@@ -14,6 +14,10 @@ export default function Home () {
 			<PageHeading value={NameJoiner(context.guestInfo.guests.map(guest => guest.name))} />
 			
 			<PageDivider />
+
+			<PageSubHeading>
+				{t('pages.home.subheading')}
+			</PageSubHeading>
 
 			<PageContent>
 				{t('pages.home.maincontent')}
