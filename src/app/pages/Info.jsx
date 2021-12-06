@@ -40,7 +40,7 @@ export default function(props) {
 	
 	return (
 		<PageLayout>
-			<PageHeading value={'Information'} />
+			<PageHeading value={t('pages.info.title')} />
 
 			<PageDivider />
 
