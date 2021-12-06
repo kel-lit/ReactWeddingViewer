@@ -17,7 +17,12 @@ export default function Translator(key) {
 		result = result[section]
 	}
 
-	return <>{ typeof result === 'string' ? parse(result) : key }</>
+	if (typeof result !== 'string')
+		return key
+
+	const parsedResult = parse(result)
+
+	return typeof parsedResult === 'string' ? parsedResult : <>{parsedResult}</>
 }
 
 function parse(string) {
