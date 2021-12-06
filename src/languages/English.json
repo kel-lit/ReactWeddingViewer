@@ -21,8 +21,9 @@
 
 		"home": {
 			"title": "Home",
-			
-			"maincontent": "Lorem Ipsum"
+
+			"subheading": "Welcome to our wedding site!",			
+			"maincontent": "From here, you'll be able to view {link to='/info' text='information'} about the day and the {link to='/location' text='location'}.{newline}You can head over to the {link to='/rsvp' text='RSVP'} page to let us know if you can make it. Please also use this page to let us know of any dietary requirements you have.{newline}You'll also be able to see the images from the day on the {link to='/images' text='Images'} page once they become available."
 		},
 
 		"info": {
