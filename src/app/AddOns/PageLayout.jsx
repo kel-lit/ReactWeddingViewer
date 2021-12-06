@@ -9,6 +9,14 @@ function PageHeading({ value, className }) {
 	)
 }
 
+function PageSubHeading({ children }) {
+	return (
+		<div className={styles.subheadingContainer}>
+			<div className={styles.subheading}>{children}</div>
+		</div>
+	)
+}
+
 function PageContent({ className, children }){
 	return (
 		<div className={styles.contentContainer}>
@@ -62,4 +70,4 @@ function ExpandableImage({ src, className }) {
 	)
 }
 
-export { PageHeading, PageContent, PageDivider, PageContentImage } 
+export { PageHeading, PageSubHeading, PageContent, PageDivider, PageContentImage } 

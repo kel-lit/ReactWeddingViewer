@@ -36,6 +36,17 @@
 	flex-direction: column;
 }
 
+.subheadingContainer {
+	width: 90%;
+	margin: 0 auto;
+	margin-bottom: 16px;
+}
+
+.subheading {
+	font-size: 24px;
+	text-align: center;
+}
+
 .contentInner {
 	text-align: justify;
 }
