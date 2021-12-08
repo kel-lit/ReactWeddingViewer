@@ -11,6 +11,7 @@ import Info from './pages/Info';
 import RSVP from './pages/RSVP';
 import Location from './pages/Location';
 import Images from './pages/Images';
+import Admin from './pages/Admin'
 
 export default function PageHandler () {
 	const context 	= useContext(UserContext);
@@ -39,6 +40,9 @@ export default function PageHandler () {
 					</Route>
 					<Route path='/logout'>
 						<Logout logout={context.logout}/>
+					</Route>
+					<Route path='/administration'>
+						<Admin />
 					</Route>
 					<Route path='/'>
 						<Home />
