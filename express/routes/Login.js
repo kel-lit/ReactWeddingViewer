@@ -42,21 +42,6 @@ async function getUserInfo(code) {
 	return await users.findOne({code: code}, {projection: {_id: 0, guests: 1, foodNotes: 2, songRequests: 3}});
 }
 
-loginRouter.post('/administration', async (req, res) => {
-	const dbAdmin = getDb().collection('admin')
-
-	const {username, hashed} = req.body
-
-	const isValid = await dbAdmin.find({'username': {$eq: username}, 'password': {$eq: hashed}})
-
-	if (!isValid)
-		res.json({body: {success: false}})
-
-	users = await getDb().collection('users').find()
-
-	res.json({body: {success: true, users: users}})
-})
-
 module.exports = {
 	loginRouter: loginRouter,
 	getUserInfo: getUserInfo 
