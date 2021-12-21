@@ -6,12 +6,11 @@ const removeSession 	= require('../database/session').removeSession;
 const getCookieSection 	= require('../utils/getCookieSection');
 
 loginRouter.post('/', async (req, res) => { 
-	const tokenPromise 		= createSession(req.body.code);
-	const userInfoPromise 	= getUserInfo(req.body.code);
-
-	const [token, userInfo] = await Promise.all([tokenPromise, userInfoPromise])
-
+	const userInfo = await getUserInfo(req.body.code);
+		
 	if (userInfo) {
+		const token = await createSession(req.body.code);
+
 		res.cookie('ksweddingviewer_session', token, {httpOnly: true});
 		res.json({body: {success: true, ...userInfo}});
 	}
