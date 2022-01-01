@@ -21,10 +21,10 @@ export default function Login(props) {
 	const context = useContext(UserContext);
 
 	const doLogin = () => {
-		if (code.length < 8) {
+		if (code.length < 10) {
 			setMessage({title: t('common.error'), message: t('pages.login.errors.tooshort'), type: 'error'});
 		}
-		else if (code.length > 8) {
+		else if (code.length > 10) {
 			setMessage({title: t('common.error'), message: t('pages.login.errors.toolong'), type: 'error'});
 		}
 		else {
