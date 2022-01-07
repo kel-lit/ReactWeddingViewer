@@ -50,25 +50,24 @@ export default function Login(props) {
 	return (
 		<Router>
 			<Redirect to='/'/>
-			<div className={styles.login_body} onSubmit={(e) => { e.preventDefault(); }}>
-				<form action={null} className={styles.form} noValidate>
-					<div className={styles.heading}>
-						<img src={imageLogo} className={styles.logo}/>	
-						<div className={styles.heading_title}>
-							{t('pages.login.title')}
+			<div className={styles.login_body}>
+				<form action={null} className={styles.form} noValidate onSubmit={e => e.preventDefault()}>
+					<div className={styles.login_card}>
+						<div className={styles.heading}>
+							<img src={imageLogo} className={styles.logo}/>	
+							<div className={styles.heading_title}>
+								{t('pages.login.title')}
+							</div>
 						</div>
-					</div>
-					<div className={styles.input_container}>
-						<div className={styles.input_card}>
-							<input className={styles.input} 
-								onFocus={() => setInputActive(true)} 
-								onBlur={() => setInputActive(false)} 
-								onChange={(e) => setCode(e.target.value)} 
-								placeholder={!inputActive ? t('pages.login.codeinputlabel') : ''}
-								type='email' />
+						<input className={styles.input}
+							value={code}
+							onFocus={() => setInputActive(true)} 
+							onBlur={() => setInputActive(false)} 
+							onChange={e => setCode(e.target.value.trim())} 
+							placeholder={!inputActive ? t('pages.login.codeinputlabel') : ''}
+							type='url' />
 
-							<Button className={styles.button} onClick={doLogin} text={t('pages.login.login')} />
-						</div>
+						<Button className={styles.button} onClick={doLogin} text={t('pages.login.login')} />
 					</div>
 				</form>
 
