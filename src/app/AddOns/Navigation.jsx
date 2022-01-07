@@ -14,7 +14,7 @@ export default function Navigation({ isMobile }) {
 		{text: t('pages.info.title'), 		url: '/information'}, 
 		{text: t('pages.rsvp.title'), 		url: '/rsvp'}, 
 		{text: t('pages.location.title'), 	url: '/location'},
-		{text: t('pages.images.title'), 	url: '/images'},
+		{text: t('pages.images.title'), 	url: '/pictures'},
 		{text: t('pages.login.logout'), 	url: '/logout'} 
 	];
 	

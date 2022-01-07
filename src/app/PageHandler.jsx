@@ -34,7 +34,7 @@ export default function PageHandler () {
 					<Route path='/location'>
 						<Location />
 					</Route>
-					<Route path='/images'>
+					<Route path='/pictures'>
 						<Images />
 					</Route>
 					<Route path='/logout'>
