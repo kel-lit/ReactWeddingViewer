@@ -17,6 +17,7 @@ function App() {
 	const [ready, setReady]				= useState(false);
 	const [isLoggedIn, setIsLoggedIn] 	= useState(true);
 
+	document.title = "Kelan and Sabrina"
 	document.cookie = 'ksweddingviewer_language=' + GetLocale();
 
 	const login = () => {
