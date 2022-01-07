@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import Login from './app/pages/Login';
-import PageHandler from './app/PageHandler';
-import useJsonApi from 'utils/useJsonApi';
-import Loader from 'utils/Loader'; 
-import GetLocale from 'utils/GetLocale';
+import React, { useState, useEffect } from 'react'
+import ReactDOM from 'react-dom'
+import Login from './app/pages/Login'
+import PageHandler from './app/PageHandler'
+import useJsonApi from 'utils/useJsonApi'
+import Loader from 'utils/Loader'
 
 const tokenCookie = 'ksweddingviewer_token';
 const UserContext = React.createContext({});
@@ -18,7 +17,7 @@ function App() {
 	const [isLoggedIn, setIsLoggedIn] 	= useState(true);
 
 	document.title = "Kelan and Sabrina"
-	document.cookie = 'ksweddingviewer_language=' + GetLocale();
+	document.cookie = 'ksweddingviewer_language=' + (navigator.language || navigator.userLanguage)
 
 	const login = () => {
 		setIsLoggedIn(true);

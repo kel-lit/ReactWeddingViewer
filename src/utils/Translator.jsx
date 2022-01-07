@@ -6,7 +6,7 @@ import Italian from 'languages/Italian.json'
 export default function Translator(key) {
 	let currentLanguage = document.cookie.split('; ').find(row => row.startsWith('ksweddingviewer_language=')).split('=')[1] || "english"
 
-	const 	source 		= currentLanguage == "english" ? English : Italian
+	const 	source 		= currentLanguage == "it-IT" ? Italian : English
 	const 	sections 	= key.split('.')
 	let 	result 		= source
 
