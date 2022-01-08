@@ -17,6 +17,16 @@
 			"logout": "Logout"
 		},
 
+		"home": {
+			"title": "Home",
+
+			"subheading": "Benvenuto sul nostro sito di matrimonio!",
+			"maincontent1": "Dopo molti ritardi e molto riorganizzare, siamo molti felici di invitarvi al nostro matrimonio!",
+			"maincontent2": "Dal questo sito, potete vedere {link to='/information' text='informazioni'} per il giorno e la {link to='/location' text='posizione'} del luogo.",
+			"maincontent3": "Potete andare alla pagina {link to='/RSVP' text='RSVP'} per rispondere al invito. Potrete usare quella pagina anche per farci sapere di esigenze alimentari.",
+			"maincontent4": "Potrete anche vedere gli immagini dal giorno sulla pagina {link to='/pictures' text='immagini'} quando sono disponibili. Date un'ochiata al menu ≡ su destra cima"
+		},
+
 		"info": {
 			"title": "Informazioni"
 		},
