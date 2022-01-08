@@ -6,7 +6,7 @@ import Italian from 'languages/Italian.json'
 export default function Translator(key) {
 	let currentLanguage = document.cookie.split('; ').find(row => row.startsWith('ksweddingviewer_language=')).split('=')[1] || "english"
 
-	const 	source 		= currentLanguage == "it-IT" ? Italian : English
+	const 	source 		= currentLanguage == "it" ? Italian : English
 	const 	sections 	= key.split('.')
 	let 	result 		= source
 
@@ -26,12 +26,16 @@ export default function Translator(key) {
 }
 
 function parse(string) {
+	if (string.search("{newline}") === -1 && string.search("{link") === -1) return string 
+	
+	const new_string = []
+
 	if (string.search("{newline}") !== -1)
-		string = create_newlines(string)
+		new_string.push(create_newlines(string))
+	if (string.search("{link") !== -1)
+		new_string.push(create_links([string]))
 
-	string = create_links(string)
-
-	return string
+	return new_string
 }
 
 function create_newlines(string) {
