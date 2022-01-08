@@ -11,6 +11,7 @@ import Info from './pages/Info';
 import RSVP from './pages/RSVP';
 import Location from './pages/Location';
 import Images from './pages/Images';
+import Gift from './pages/Gift'
 
 export default function PageHandler () {
 	const context 	= useContext(UserContext);
@@ -36,6 +37,9 @@ export default function PageHandler () {
 					</Route>
 					<Route path='/pictures'>
 						<Images />
+					</Route>
+					<Route path='/giveagift'>
+						<Gift />
 					</Route>
 					<Route path='/logout'>
 						<Logout logout={context.logout}/>
