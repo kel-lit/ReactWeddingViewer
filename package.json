@@ -6,7 +6,7 @@
 	"scripts": {
 		"test": "o \"Error: no test specified\" && exit 1",
 		"build": "webpack",
-		"serve": "webpack serve --open"
+		"serve": "webpack serve --open --host 0.0.0.0"
 	},
 	"keywords": [],
 	"author": "Kelan Littley",
@@ -40,6 +40,7 @@
 		"react-device-detect": "^1.17.0",
 		"react-dom": "^17.0.1",
 		"react-router-dom": "^5.3.0",
+		"stripe": "^8.195.0",
 		"ttf-loader": "^1.0.2"
 	}
 }
