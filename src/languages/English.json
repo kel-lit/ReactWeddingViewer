@@ -22,8 +22,15 @@
 		"home": {
 			"title": "Home",
 
-			"subheading": "Welcome to our wedding site!",			
-			"maincontent": "From here, you'll be able to view {link to='/information' text='information'} about the day and the {link to='/location' text='location'}.{newline}You can head over to the {link to='/rsvp' text='RSVP'} page to let us know if you can make it. Please also use this page to let us know of any dietary requirements you have.{newline}You'll also be able to see the images from the day on the {link to='/pictures' text='Pictures'} page once they become available."
+			"subheading": "Welcome to our wedding site!",
+			"maincontent1": "After many delays and a lot of reorganising, we're very excited to finally invite you to join us on our Wedding day!",
+			"maincontent2": "From this site, you'll be able to view {link to='/information' text='information'} about the day and the {link to='/location' text='location'}.",
+			"maincontent3": "You can head over to the {link to='/rsvp' text='RSVP'} page to let us know if you can make it. Please also use this page to let us know of any dietary requirements you have.",
+			"maincontent4": "You'll also be able to see the images from the day on the {link to='/pictures' text='Pictures'} page once they become available. Have a look around by opening the menu ≡ in the top right.",
+
+			"gifts": "Gifts",
+			"giftsmessage1": "The most important thing to us is that you can make it to celebrate our Wedding day with us, we do not expect any gifts from anyone.{newline}However, if you do wish to give us a gift, a small contribution towards our Honeymoon would be greatly appreciated!",
+			"giftsmessage2": "We understand that it is tradition to gift newly-weds homeware, but since we have lived together for a long time, we really have everything we need. The greatest gifts we could ask for are great memories and experiences together as a new family."
 		},
 
 		"info": {
