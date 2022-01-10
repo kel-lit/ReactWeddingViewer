@@ -70,7 +70,7 @@
 			"foodinfo": "Canapés will be served before the ceremony. ",
 			"foodstarterheading": "Starter",
 			"foodveggiestarter": "Mango and Brie parcels",
-			"foodveganstarter": "Something",
+			"foodveganstarter": "Avocado and Grapefruit Salad",
 			"foodstarter": "Braised Ox Cheek",
 			"foodkidsstarter": "Garlic Dough Balls",
 			"foodmainheading": "Main",
@@ -99,7 +99,7 @@
 		"rsvp": {
 			"title": "RSVP",
 
-			"textareaplaceholder": "Food notes",
+			"textareaplaceholder": "Food notes...",
 
 			"name": "Name",
 			"guesttype": "Invite",
@@ -115,8 +115,8 @@
 		"location": {
 			"title": "Location",
 
-			"maincontent": "Some info about the place",
-			"locationdescription": "Location Desciption - Just off the M1 blah blah"
+			"maincontent": "Dodford Manor is a lovely barn venue in the small village of Dodford, near Daventry. The venue has a lot of character and really fits with our tastes, which is why we love it!",
+			"locationdescription": "Fortunately, Dodford Manor is quite close to Junction 16 on the M1, which makes travelling there very easy! The venue also has a large carpark."
 		},
 
 		"images": {
