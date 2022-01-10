@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import PageLayout, { PageHeading, PageDivider } from '../AddOns/PageLayout'
+import PageLayout, { PageHeading, PageDivider, PageContent } from '../AddOns/PageLayout'
 import Toggle from '../AddOns/Toggle'
 import TextArea from '../AddOns/TextArea'
 import Loader from 'utils/Loader'
@@ -98,7 +98,9 @@ export default function({ guestInfo }) {
 					</div>
 				</div>
 
-				<button className={styles.save_button} disabled={saveLoading} onClick={doSaveChanges} style={{"display": showSave() ? "block" : "none"}} >{t('pages.rsvp.save')}</button>
+				<PageContent>
+					<button className={styles.save_button} disabled={saveLoading} onClick={doSaveChanges} style={{"display": showSave() ? "block" : "none"}} >{t('pages.rsvp.save')}</button>
+				</PageContent>
 
 				<MessageHandler message={message || {}} close={() => setMessage(null)} />
 			</PageLayout>
