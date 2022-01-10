@@ -29,3 +29,37 @@
 		}
 	}
 }
+
+.table {
+	width: calc(100% - 1px);
+	text-align: center;
+	border-collapse: collapse;
+	box-sizing: border-box;
+
+	& :first-child :first-child :first-child {
+		border-top-left-radius: 10px;	
+	}
+
+	& :first-child :last-child :first-child {
+		border-bottom-left-radius: 10px;
+	}
+
+	& td {
+		border: 1px solid darken($primary, 10);
+		padding: 5px 10px;
+		box-sizing: border-box;
+
+		&:hover {
+			background-color: darken(white, 5);
+		}
+	}
+
+	& th {
+		background-color: $primary;
+		padding: 5px 10px;
+
+		&:last-child {
+			border-top-right-radius: 10px;
+		}
+	}
+}	
