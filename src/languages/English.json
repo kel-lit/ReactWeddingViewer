@@ -26,20 +26,71 @@
 			"maincontent1": "After many delays and a lot of reorganising, we're very excited to finally invite you to join us on our Wedding day!",
 			"maincontent2": "From this site, you'll be able to view {link to='/information' text='information'} about the day and the {link to='/location' text='location'}.",
 			"maincontent3": "You can head over to the {link to='/rsvp' text='RSVP'} page to let us know if you can make it. Please also use this page to let us know of any dietary requirements you have.",
-			"maincontent4": "You'll also be able to see the images from the day on the {link to='/pictures' text='Pictures'} page once they become available. Have a look around by opening the menu ≡ in the top right.",
+			"maincontent4": "You'll also be able to see the images from the day on the {link to='/pictures' text='Pictures'} page once they become available. Have a look around by opening the menu at the top.",
 
 			"gifts": "Gifts",
-			"giftsmessage1": "The most important thing to us is that you can make it to celebrate our Wedding day with us, we do not expect any gifts from anyone.{newline}However, if you do wish to give us a gift, a small contribution towards our Honeymoon would be greatly appreciated!",
-			"giftsmessage2": "We understand that it is tradition to gift newly-weds homeware, but since we have lived together for a long time, we really have everything we need. The greatest gifts we could ask for are great memories and experiences together as a new family."
+			"giftsmessage1": "The most important thing to us is that you can make it to celebrate our Wedding day with us, we do not expect any gifts from anyone.",
+			"giftsmessage2": "However, we do understand that some of you may want to give us a gift. If you do want to give us something, we would greatly appreciate a small contribution towards our Honeymoon, the greatest gifts we could ask for are great memories and experiences together as a new family.",
+			"giftsmessage3": "To make things easier, we've set up a CollectionPot, {link to='https://www.collectionpot.com/pot/1034776/' text='which you can find here'}, any contribution is greatly appreciated!"
 		},
 
 		"info": {
 			"title": "Information",
+			
+			"timetitle": "Timings",
+			"timeoneheading": "2pm",
+			"timeone": "Day guests arrive",
+			"timetwoheading": "2:30pm",
+			"timetwo": "Ceremony starts",
+			"timethreeheading": "3pm",
+			"timethree": "Bar opens and canapés are served",
+			"timefourheading": "4:30pm",
+			"timefour": "Guests take seats for Wedding breakfast",
+			"timefiveheading": "4:45pm",
+			"timefive": "Wedding breakfast is served",
+			"timesixheading": "6:30pm",
+			"timesix": "Toasts and speeches",
+			"timesevenheading": "7pm",
+			"timeseven": "Evening guests will begin to arrive",
+			"timeeightheading": "8pm",
+			"timeeight": "Cake cutting followed by First Dance and band",
+			"timenineheading": "9pm",
+			"timenine": "Evening food will be available",
+			"timetenheading": "11:45pm",
+			"timeten": "Bar closes",
+			"timeelevenheading": "12am",
+			"timeeleven": "Time to head home!",
+			
+			"foodtitle": "Wedding Breakfast",
+			"foodmeateaters": "Meat",
+			"foodveggie": "Veggie",
+			"foodvegan": "Vegan",
+			"foodkids": "Kids",
+			
+			"foodinfo": "Canapés will be served before the ceremony. ",
+			"foodstarterheading": "Starter",
+			"foodveggiestarter": "Mango and Brie parcels",
+			"foodveganstarter": "Something",
+			"foodstarter": "Braised Ox Cheek",
+			"foodkidsstarter": "Garlic Dough Balls",
+			"foodmainheading": "Main",
+			"foodveggiemain": "Quinoa Risotto",
+			"foodveganmain": "",
+			"foodmain": "Trio of Chicken",
+			"foodkidsmain": "Pizza",
+			"fooddessertheading": "Dessert",
+			"fooddessert": "Salted Caramel and Chocolate Tart",
+			"foodevening": "In the evening, there will be a selection of freshly made pizzas.",
 
-			"timeinfo": "Put here information about the day. What time should guests arrive? What time does the ceremony start? What happens after? What time is the wedding breakfast? What time do the evening guests arrive?",
-			"foodinfo": "What's for dins?",
-			"bandinfo": "Who's the band?",
-			"bandinfolink": "You can find them here",
+
+			"hoteltitle": "Hotels",
+			"hotelinfo": "There are a lot of hotels within a 10-15 drive from the venue if you don't feel like making the journey home on the night!",
+			
+			"bandtitle": "Music",
+			"bandinfo": "JukeboxMK will be performing in the evening, they're a great band and do a massive variety of genres. JukeboxMK will be doing three 45-minute sets, with a DJ in between. {link to='https://www.jukeboxmk.com/' text='You can find their website here'}.",
+			"bandinfolink": "You can find there website here",
+			
+			"songrequeststitle": "Song Requests",
 			"songrequests": "Got some songs you'd like to hear? Leave them below",
 			"songrequestsplaceholder": "Leave your song requests",
 			"savesongrequest": "Save"
@@ -71,7 +122,7 @@
 		"images": {
 			"title": "Pictures",
 
-			"maincontent": "Once the Wedding photos are available, we'll let everyone know and you'll be able to view them here"
+			"maincontent": "Once the Wedding photos are available, we'll let everyone know and you'll be able to view them here."
 		}
 	},
 	"utils": {
