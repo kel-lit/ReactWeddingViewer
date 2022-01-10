@@ -3,7 +3,7 @@ const checkSession = require('../database/session').checkSession
 const getCookieSection = require('../utils/getCookieSection')
 const getDb = require('../database/database').getDb;
 
-const stripe = require('stripe')('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')
+const stripe = require('stripe')('')
 
 giftRouter.get('/createcustomer', async (req, res) => {
 	// Validate user session
@@ -15,15 +15,15 @@ giftRouter.get('/createcustomer', async (req, res) => {
 	}
 
 	const document = await getDb().collection('users').findOne({code: isValid.code})
-	const customerName = document.guests.map(guest => guest.name).join('+')
-	const customers = (await stripe.customers.list()).data;
+	const customers = (await stripe.customers.list()).data
+	const customerName = nameJoin(document.guests.map(guest => guest.name))
 
 	let customer = customers.find(element => element.description === customerName)
 
 	if (!customer)
 		customer = await stripe.customers.create({name: customerName, description: customerName}) 
 
-	res.json({data: {customerId: customer.id, customerName: customer.description}})
+	res.json({body: {customerId: customer.id, customerName: customer.description}})
 })
 
 giftRouter.post('/createprice', async (req, res) => {
@@ -35,23 +35,57 @@ giftRouter.post('/createprice', async (req, res) => {
 
 	// Create the product with the amount specified
 
-	const product = await stripe.product.create({name: req.body.customerName})
+	let product
+	
+	try {
+		product = await stripe.products.retrieve(isValid.code)
+	}
+	catch {
+		product = await stripe.products.create({name: req.body.data.customerName + ' - Gift', id: isValid.code})
+	}
 
+	const giftAmount = Math.round(req.body.data.giftAmount * 100)
+	
 	try {
 		const price = await stripe.prices.create({
-			unit_amount: req.body.giftAmount,
+			unit_amount: giftAmount,
 			currency: 'gbp',
-			product_data: {
-				name: req.body.customerName
-			}
+			product: product.id
 		})
+	
+		const session = await stripe.checkout.sessions.create({
+			success_url: 'http://localhost:9000/giveagift?success=true',
+			cancel_url: 'http://localhost:9000/giveagift?cancelled=true',
+			line_items: [
+				{price: price.id, quantity: 1},
+			],
+			mode: 'payment',
+		});
+	
+		res.json({body: {url: session.url}})
 	}
 	catch (error) {
 		console.log(error)
 	}
 
-
-	const thing = 1
 })
+
+function nameJoin(names) {
+	let 	nameString 	= '';
+
+	names.forEach((name, index) => {
+		nameString += name;
+
+		if (index < names.length - 2) {
+			nameString += ', '
+		}
+		else if (index < names.length - 1) {
+			nameString += ' & '
+		}
+	})
+
+	return nameString;
+}
+
 
 module.exports = {giftRouter: giftRouter};

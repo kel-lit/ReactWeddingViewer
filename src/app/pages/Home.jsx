@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import PageLayout, { PageHeading, PageSubHeading, PageContent, PageDivider } from '../AddOns/PageLayout';
 import NameJoiner from 'utils/NameJoiner';
 import { Button } from 'utils/Buttons'
-import useJsonApi from 'utils/useJsonApi'
+import { Link } from 'react-router-dom';
 
 import { UserContext } from '../../index';
 
@@ -10,12 +10,6 @@ import styles from './Home.scss';
 
 export default function Home () {
 	const context = useContext(UserContext);
-
-	const [response, loading, error, request] = useJsonApi('/api/gift')
-
-	const gift = () => {
-		window.location.assign('/giveagift')
-	}
 
 	return (
 		<PageLayout>
@@ -47,7 +41,7 @@ export default function Home () {
 				{t('pages.home.giftsmessage2')}
 			</PageContent>
 
-			<Button className={styles.giftButton} text={t('pages.home.giveagift')} onClick={gift} />
+			<Button className={styles.giftButton} text={<Link to='/giveagift'>{t('pages.home.giveagift')}</Link>} />
 
 		</PageLayout>
 	)
