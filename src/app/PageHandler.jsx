@@ -14,7 +14,7 @@ import Images from './pages/Images';
 import Gift from './pages/Gift'
 
 export default function PageHandler () {
-	const context 	= useContext(UserContext);
+	const context = useContext(UserContext);
 
 	if (!isMobile)
 		document.getElementById('root').setAttribute('min-width', '600px')
@@ -37,9 +37,6 @@ export default function PageHandler () {
 					</Route>
 					<Route path='/pictures'>
 						<Images />
-					</Route>
-					<Route path='/giveagift'>
-						<Gift />
 					</Route>
 					<Route path='/logout'>
 						<Logout logout={context.logout}/>

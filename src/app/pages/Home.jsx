@@ -39,9 +39,9 @@ export default function Home () {
 				{t('pages.home.giftsmessage1')}
 				<br />
 				{t('pages.home.giftsmessage2')}
+				<br />
+				{t('pages.home.giftsmessage3')}
 			</PageContent>
-
-			<Button className={styles.giftButton} text={<Link to='/giveagift'>{t('pages.home.giveagift')}</Link>} />
 
 		</PageLayout>
 	)

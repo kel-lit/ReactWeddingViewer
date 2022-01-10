@@ -3,8 +3,6 @@ const checkSession = require('../database/session').checkSession
 const getCookieSection = require('../utils/getCookieSection')
 const getDb = require('../database/database').getDb;
 
-const stripe = require('stripe')('')
-
 giftRouter.get('/createcustomer', async (req, res) => {
 	// Validate user session
 	const isValid = await checkSession(getCookieSection(req.headers.cookie, 'ksweddingviewer_session'))

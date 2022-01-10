@@ -33,7 +33,7 @@ export default function () {
 
 	const NewGift = () => {
 		return (
-			<>
+			<React.Fragment key='giftInput' >
 				<PageContent>
 					{t('pages.gifts.content')}
 				</PageContent>
@@ -45,7 +45,7 @@ export default function () {
 
 					{customerName}
 				</PageContent>
-			</>
+			</React.Fragment>
 		)
 	}
 
