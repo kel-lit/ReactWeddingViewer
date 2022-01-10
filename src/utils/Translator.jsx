@@ -74,7 +74,7 @@ function create_links(string_list) {
 	
 			new_string.push(sub_string.substring(0, pos))
 			
-			new_string.push(<a href={link[0]} key={Math.random().toString()}>{text[0]}</a>)
+			new_string.push(<a href={link[0]} target='_blank' key={Math.random().toString()}>{text[0]}</a>)
 			sub_string = sub_string.substring(end + 1, sub_string.length)
 		}
 
