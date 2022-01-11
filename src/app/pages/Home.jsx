@@ -11,6 +11,8 @@ import styles from './Home.scss';
 export default function Home () {
 	const context = useContext(UserContext);
 
+	const currentLanguage = document.cookie.split('; ').find(row => row.startsWith('ksweddingviewer_language=')).split('=')[1] || "english"
+
 	return (
 		<PageLayout>
 			<PageHeading value={NameJoiner(context.guestInfo.guests.map(guest => guest.name))} />
@@ -31,17 +33,20 @@ export default function Home () {
 				{t('pages.home.maincontent4')}
 			</PageContent>
 
-			<PageHeading value={t('pages.home.gifts')} />
+			{ currentLanguage !== "it" &&
+			<>
+				<PageHeading value={t('pages.home.gifts')} />
 
-			<PageDivider />
+				<PageDivider />
 
-			<PageContent>
-				{t('pages.home.giftsmessage1')}
-				<br />
-				{t('pages.home.giftsmessage2')}
-				<br />
-				{t('pages.home.giftsmessage3')}
-			</PageContent>
+				<PageContent>
+					{t('pages.home.giftsmessage1')}
+					<br />
+					{t('pages.home.giftsmessage2')}
+					<br />
+					{t('pages.home.giftsmessage3')}
+				</PageContent>
+			</> }
 
 		</PageLayout>
 	)
