@@ -8,24 +8,29 @@ export default function({ message, close }) {
 	const [animateIn, setAnimateIn] = useState(false)
 
 	useEffect(() => {
-		if (!message) return 
-
+		if (JSON.stringify(message) === '{}') return 
+		
 		if (thisTimeout)
 			window.clearTimeout(thisTimeout)
-
+		
 		setAnimateIn(true)
 
 		setThisTimeout(setTimeout(() => {
 			setAnimateIn(false)
-			setThisTimeout(null)
 		}, 3000))
-
-		setThisTimeout(setTimeout(() => {
-			close()
-		}, 3500))
-
+		
 		return () => window.clearTimeout(thisTimeout)
 	}, [message])
+
+	useEffect(() =>{
+		if (!animateIn) {
+			setThisTimeout(setTimeout(() => {
+				close()
+			}, 500))
+		}
+
+		return () => window.clearTimeout(thisTimeout)
+	}, [animateIn])
 
 	const getHandler = () => {
 		if (JSON.stringify(message) !== "{}" && (message.title || message.message)) {
