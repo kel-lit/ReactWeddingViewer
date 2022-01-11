@@ -65,7 +65,8 @@ export default function Login(props) {
 							onBlur={() => setInputActive(false)} 
 							onChange={e => setCode(e.target.value.trim())} 
 							placeholder={!inputActive ? t('pages.login.codeinputlabel') : ''}
-							type='url' />
+							type='url'
+							maxLength={10} />
 
 						<Button className={styles.button} onClick={doLogin} text={t('pages.login.login')} />
 					</div>
