@@ -159,27 +159,30 @@ function FoodTable() {
 			<tbody>
 				<tr>
 					<th></th>
-					<th>{t('pages.info.foodmeateaters')}</th>
-					<th>{t('pages.info.foodveggie')}</th>
-					<th>{t('pages.info.foodvegan')}</th>
-					<th>{t('pages.info.foodkids')}</th>
-				</tr>
-				<tr>
 					<th>{t('pages.info.foodstarterheading')}</th>
-					<td>{t('pages.info.foodstarter')}</td>
-					<td>{t('pages.info.foodveggiestarter')}</td>
-					<td>{t('pages.info.foodveganstarter')}</td>
-					<td>{t('pages.info.foodkidsstarter')}</td>
-				</tr>
-				<tr>
 					<th>{t('pages.info.foodmainheading')}</th>
-					<td>{t('pages.info.foodmain')}</td>
-					<td colSpan={2}>{t('pages.info.foodveggiemain')}</td>
-					<td>{t('pages.info.foodkidsmain')}</td>
+					<th>{t('pages.info.fooddessertheading')}</th>
 				</tr>
 				<tr>
-					<th>{t('pages.info.fooddessertheading')}</th>
-					<td colSpan={4}>{t('pages.info.fooddessert')}</td>
+					<th>{t('pages.info.foodmeateaters')}</th>
+					<td>{t('pages.info.foodstarter')}</td>
+					<td>{t('pages.info.foodmain')}</td>
+					<td rowSpan={4}>{t('pages.info.fooddessert')}</td>
+				</tr>
+				<tr>
+					<th>{t('pages.info.foodveggie')}</th>
+					<td>{t('pages.info.foodveggiestarter')}</td>
+					<td rowSpan={2}>{t('pages.info.foodveggiemain')}</td>
+				</tr>
+				<tr>
+					<th>{t('pages.info.foodvegan')}</th>
+					<td>{t('pages.info.foodveganstarter')}</td>
+				</tr>
+					<th>{t('pages.info.foodkids')}</th>
+					<td>{t('pages.info.foodkidsstarter')}</td>
+					<td>{t('pages.info.foodkidsmain')}</td>
+				<tr>
+
 				</tr>
 			</tbody>
 		</table>
