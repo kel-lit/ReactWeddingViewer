@@ -113,19 +113,19 @@ export default function({ guestInfo }) {
 function RSVPTable({ guests }) {
 	return (
 		<div className={styles.table}>
-			{ guests.length && <RSVPTableHeading /> }
+			{ guests.length && <RSVPTableHeading isDayGuest={(guests || []).every(guest => guest.isDayGuest)} /> }
 			{ (guests || []).map((guest, index) => <RSVPTableRow key={index} index={index} {...guest} />) }
 		</div>
 	)
 }
 
-function RSVPTableHeading() {
+function RSVPTableHeading({ isDayGuest }) {
 	return (
 		<div className={styles.row_head + ' ' + styles.heading}>
 			<div className={styles.heading_row_cell}>{t('pages.rsvp.name')}</div>
 			<div className={styles.heading_row_cell}>{t('pages.rsvp.guesttype')}</div>
 			<div className={styles.heading_row_cell}>{t('pages.rsvp.attending')}</div>
-			<div className={styles.heading_row_cell}>{t('pages.rsvp.vegetarian')}</div>
+			{ isDayGuest && <div className={styles.heading_row_cell}>{t('pages.rsvp.vegetarian')}</div> }
 		</div>
 	)
 }
@@ -161,7 +161,7 @@ function RSVPTableRow({ index, name, isDayGuest, isAttending, isVegetarian }) {
 				<div className={styles.row_data_cell}>{name}</div>
 				<div className={styles.row_data_cell}><img src={isDayGuest ? imageDay : imageEvening} className={styles.icon} /></div>
 				<div className={styles.row_data_cell}><Toggle value={state.attending} onClick={pos => doSetState('attending', pos)} /></div>
-				<div className={styles.row_data_cell}><Toggle value={state.vegetarian} onClick={pos => doSetState('vegetarian', pos)} disabled={!isGuestAttending()} /></div>
+				{ isDayGuest && <div className={styles.row_data_cell}><Toggle value={state.vegetarian} onClick={pos => doSetState('vegetarian', pos)} disabled={!isGuestAttending()} /></div> }
 			</div>
 		</div>
 	)
