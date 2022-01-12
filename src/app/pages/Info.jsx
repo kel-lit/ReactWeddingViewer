@@ -60,8 +60,6 @@ export default function(props) {
 				<PageSubHeading>
 					{t('pages.info.foodtitle')}
 				</PageSubHeading>
-				{t('pages.info.foodinfo')}
-				<br />
 				<FoodTable />
 
 				<br/>
