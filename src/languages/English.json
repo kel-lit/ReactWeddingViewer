@@ -31,7 +31,7 @@
 			"gifts": "Gifts",
 			"giftsmessage1": "The most important thing to us is that you can make it to celebrate our Wedding day with us, we do not expect any gifts from anyone.",
 			"giftsmessage2": "However, we do understand that some of you may want to give us a gift. If you do want to give us something, we would greatly appreciate a small contribution towards our Honeymoon, the greatest gifts we could ask for are great memories and experiences together as a new family.",
-			"giftsmessage3": "To make things easier, we've set up a CollectionPot, {link to='https://www.collectionpot.com/pot/1034776/' text='which you can find here'}, any contribution is greatly appreciated!"
+			"giftsmessage3": "To make things easier, we've set up a CollectionPot, {link to='https://www.collectionpot.com/pot/1034776/' text='which you can find here' blank}, any contribution is greatly appreciated!"
 		},
 
 		"info": {
@@ -87,7 +87,7 @@
 			"hotelinfo": "There are a lot of hotels within a 10-15 drive from the venue if you don't feel like making the journey home on the night!",
 			
 			"bandtitle": "Music",
-			"bandinfo": "JukeboxMK will be performing in the evening, they're a great band and do a massive variety of genres. JukeboxMK will be doing three 45-minute sets, with a DJ in between. {link to='https://www.jukeboxmk.com/' text='You can find their website here'}.",
+			"bandinfo": "JukeboxMK will be performing in the evening, they're a great band and do a massive variety of genres. JukeboxMK will be doing three 45-minute sets, with a DJ in between. {link to='https://www.jukeboxmk.com/' text='You can find their website here' blank}.",
 			"bandinfolink": "You can find there website here",
 			
 			"songrequeststitle": "Song Requests",
