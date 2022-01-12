@@ -21,50 +21,106 @@
 			"title": "Home",
 
 			"subheading": "Benvenuto sul nostro sito di matrimonio!",
-			"maincontent1": "Dopo molti ritardi e molto riorganizzare, siamo molti felici di invitarvi al nostro matrimonio!",
-			"maincontent2": "Dal questo sito, potete vedere {link to='/information' text='informazioni'} per il giorno e la {link to='/location' text='posizione'} del luogo.",
-			"maincontent3": "Potete andare alla pagina {link to='/RSVP' text='RSVP'} per rispondere al invito. Potrete usare quella pagina anche per farci sapere di esigenze alimentari.",
-			"maincontent4": "Potrete anche vedere gli immagini dal giorno sulla pagina {link to='/pictures' text='immagini'} quando sono disponibili. Date un'ochiata al menu ≡ su destra cima"
+			"maincontent1": "Dopo molti ritardi e riorganizzazioni siamo felici di invitarvi al nostro matrimonio!",
+			"maincontent2": "Da questo sito, potete vedere {link to='/information' text='informazioni'} per il giorno e il {link to='/location' text='luogo'}.",
+			"maincontent3": "Potete andare alla pagina {link to='/RSVP' text='RSVP'} per rispondere all' invito. Potrete usare la pagina anche per farci sapere se avete esigenze alimentari.",
+			"maincontent4": "Potrete anche vedere le foto del giorno sulla pagina {link to='/pictures' text='foto'} quando saranno disponibili. Date un'occhiata al menu in cima alla pagina",
+		
+			"passport": "Passaporti",
+			"passportmessage": "Adesso che il Regno Unito ha lasciato l'Unione Europea, dovrete avere il passaporto per viaggiare qua. La carta d'identità non e valida."
 		},
 
 		"info": {
 			"title": "Informazioni",
 
-			"timetitle": "Tempi",
+			"timetitle": "Programma",
 			"timeoneheading": "14:00",
-			"timeone": "",
+			"timeone": "Arrivano gli invitati",
 			"timetwoheading": "14:30",
-			"timetwo": "",
+			"timetwo": "Comincia la ceremonia",
 			"timethreeheading": "15:00",
-			"timethree": "",
+			"timethree": "Apre il bar e sono servite gli antipasti",
 			"timefourheading": "16:30",
-			"timefour": "",
+			"timefour": "Gli invitati si siedono per il pranzo",
 			"timefiveheading": "16:45",
-			"timefive": "",
+			"timefive": "È servito il pranzo",
 			"timesixheading": "18:30",
-			"timesix": "",
+			"timesix": "Brindisi e discorsi",
 			"timesevenheading": "19:00",
-			"timeseven": "",
+			"timeseven": "Gli invitati della sera arrivano",
 			"timeeightheading": "20:00",
-			"timeeight": "",
+			"timeeight": "Torta e primo ballo",
 			"timenineheading": "21:00",
-			"timenine": "",
+			"timenine": "Buffet",
 			"timetenheading": "23:45",
-			"timeten": "",
+			"timeten": "Chiude il bar",
 			"timeelevenheading": "00:00",
-			"timeeleven": "" 
+			"timeeleven": "Fine",
+
+			"foodtitle": "Pranzo",
+			"foodmeateaters": "Carne",
+			"foodveggie": "Vegetariani",
+			"foodvegan": "Vegano",
+			"foodkids": "Bambini",
+
+			"foodstarterheading": "Primo Piatto",
+			"foodveggiestarter": "Mango e Brie Pacchetti",
+			"foodveganstarter": "Insalata di Avocado e Pompelmo",
+			"foodstarter": "Guancia di Bue Brasata",
+			"foodkidsstarter": "Palline di Pane all'Aglio",
+			"foodmainheading": "Secondo Piatto",
+			"foodveggiemain": "Risotto di Quinoa",
+			"foodveganmain": "",
+			"foodmain": "Trio di Pollo",
+			"foodkidsmain": "Goujon di Pollo con Patatine e Piselli",
+			"fooddessertheading": "Dolce",
+			"fooddessert": "Crostata al Ciocolato e Caramello Salato",
+			"foodevening": "Per la sera, ci sarà una selezione di pizze.",
+
+			"hoteltitle": "Albergo",
+			"hotelinfo": "Fateci sapere se avete bisogno di una stanza d'albergo. Abbiamo il discount per un'hotel vicino al luogo della ceremonia.",
+		
+			"bandtitle": "Musica",
+			"bandinfo": "I JukeboxMK suonerano la sera, sono un gruppo fantastico e hanno un ampio repertorio. {link to='https://www.jukeboxmk.com/' text='Potete trovareli su questo sito' blank}.",
+
+			"songrequeststitle": "Canzoni Richieste",
+			"songrequests": "Se avete delle canzoni che volete sentire? Lasciatele qua sotto",
+			"songrequestsplaceholder": "Lasciate le canzone qua",
+			"savesongrequest": "Salva"
 		},
 
 		"rsvp": {
-			"title": "RSVP"
+			"title": "RSVP",
+
+			"textareaplaceholder": "Esigenze alimentari",
+
+			"name": "Nome",
+			"guesttype": "Invito",
+			"attending": "Presenze",
+			"vegetarian": "Vegetariano",
+
+			"allday": "Giorno",
+			"evening": "Sera",
+
+			"save": "Salva"
 		},
 
 		"location": {
-			"title": "Località"
+			"title": "Luogo", 
+
+			"maincontent": "Dodford Manoe é un fienile nel piccolo villaggio di Dodford, vicino a Daventry. Il fienile é molto particolare e va con i nostri gusti, ed é per quello che ci é piaciuto molto.",
+			"locationdescription": "Fortunatamente, Dodford Manor é in una location molto accessibile, vicino all'uscita dell'autostrada. C'é anche un ampio posteggio al fienile."
 		},
 
 		"images": {
-			"title": "Immagini"
+			"title": "foto",
+			"maincontent": "Vi faremo sapere quando le foto del matrimonio saranno pronte e potrete vederle qua."
+		}
+	},
+	"utils": {
+		"toggle": {
+			"yes": "Si",
+			"no": "No"
 		}
 	}
 }
