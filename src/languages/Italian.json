@@ -4,7 +4,7 @@
 		"login":
 		{
 			"title": "Benvenuto",
-			"codeinputlabel": "Entra il tuo codice",
+			"codeinputlabel": "Entra il codice",
 			"codeinput": "Codice",
 			"login": "Login",
 			
@@ -28,7 +28,31 @@
 		},
 
 		"info": {
-			"title": "Informazioni"
+			"title": "Informazioni",
+
+			"timetitle": "Tempi",
+			"timeoneheading": "14:00",
+			"timeone": "",
+			"timetwoheading": "14:30",
+			"timetwo": "",
+			"timethreeheading": "15:00",
+			"timethree": "",
+			"timefourheading": "16:30",
+			"timefour": "",
+			"timefiveheading": "16:45",
+			"timefive": "",
+			"timesixheading": "18:30",
+			"timesix": "",
+			"timesevenheading": "19:00",
+			"timeseven": "",
+			"timeeightheading": "20:00",
+			"timeeight": "",
+			"timenineheading": "21:00",
+			"timenine": "",
+			"timetenheading": "23:45",
+			"timeten": "",
+			"timeelevenheading": "00:00",
+			"timeeleven": "" 
 		},
 
 		"rsvp": {
