@@ -19,6 +19,15 @@ export default function Home () {
 			
 			<PageDivider />
 
+			{ currentLanguage === 'it' && 
+			<>
+				<PageSubHeading>{t('pages.home.passport')}</PageSubHeading>
+				
+				<PageContent>
+					{t('pages.home.passportmessage')}
+				</PageContent>
+			</> }
+
 			<PageSubHeading>
 				{t('pages.home.subheading')}
 			</PageSubHeading>
@@ -33,7 +42,7 @@ export default function Home () {
 				{t('pages.home.maincontent4')}
 			</PageContent>
 
-			{ currentLanguage !== "it" &&
+			{ currentLanguage !== 'it' &&
 			<>
 				<PageHeading value={t('pages.home.gifts')} />
 
@@ -47,7 +56,6 @@ export default function Home () {
 					{t('pages.home.giftsmessage3')}
 				</PageContent>
 			</> }
-
 		</PageLayout>
 	)
 }
