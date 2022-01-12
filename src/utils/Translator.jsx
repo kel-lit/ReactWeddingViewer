@@ -70,11 +70,13 @@ function create_links(string_list) {
 			const for_regex = sub_string.substring(0, end + 1) 
 
 			const link = for_regex.match("(?<={link to=')(.*)(?='\ text=)")
-			const text = for_regex.match("(?<=text=')(.*)(?='})")
+			const text = for_regex.match("(?<=text=')(.*)(?='\s*)")
+			const test = for_regex.match("(?<=text=')(.*)(?='})")
+			const blank = for_regex.match("blank")
 	
 			new_string.push(sub_string.substring(0, pos))
 			
-			new_string.push(<a href={link[0]} target='_blank' key={Math.random().toString()}>{text[0]}</a>)
+			new_string.push(<a href={link[0]} target={blank ? '_blank' : '_self'} key={Math.random().toString()}>{text[0]}</a>)
 			sub_string = sub_string.substring(end + 1, sub_string.length)
 		}
 
