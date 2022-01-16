@@ -5,6 +5,7 @@ import TextArea from '../AddOns/TextArea'
 import Loader from 'utils/Loader'
 import useJsonApi from 'utils/useJsonApi'
 import MessageHandler from 'utils/MessageHandler'
+import { UserContext } from '../../index'
 
 import styles from './RSVP.scss'
 
@@ -21,6 +22,8 @@ export default function({ guestInfo }) {
 	const [hasChanges, setHasChanges] 	= useState(null)
 
 	const [saveLoading, setSaveLoading] = useState(false)
+
+	const context = useContext(UserContext)
 
 	const updateFoodNotes = (value) => {
 		setHasChanges(state => ({
@@ -67,6 +70,7 @@ export default function({ guestInfo }) {
 
 			if (response.result.success) {
 				setOriginal(hasChanges)
+				context.setGuestInfo(state => ({...state, ...hasChanges}))
 				setMessage({message: t('common.changessaved'), type: 'info'})
 			}
 			else
