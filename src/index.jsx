@@ -4,6 +4,7 @@ import Login from './app/pages/Login'
 import PageHandler from './app/PageHandler'
 import useJsonApi from 'utils/useJsonApi'
 import Loader from 'utils/Loader'
+import { isSafari } from 'react-device-detect'
 
 const tokenCookie = 'ksweddingviewer_token';
 const UserContext = React.createContext({});
@@ -43,22 +44,32 @@ function App() {
 		}
 	}, [session])
 
-	if (ready && isLoggedIn) {
+	if (isSafari) {
 		return (
-			<UserContext.Provider value={{logout: logout, guestInfo: guestInfo, setGuestInfo: setGuestInfo}}>
-				<PageHandler />
-			</UserContext.Provider>
-		)
-	}
-	else if (ready) {
-		return (
-			<UserContext.Provider value={{ login: login, setGuestInfo: setGuestInfo }}>
-				<Login />
-			</UserContext.Provider>
+		<>
+			<h1>Safari Incompatability</h1>
+			<p>Sorry for the inconvinence, but this website isn't compatible with Safari browser. The website does work on Chrome, Firefox and Edge. If you're not able to use one of those, please contact Kelan or Sabrina.</p>
+		</> 
 		)
 	}
 	else {
-		return <Loader />
+		if (ready && isLoggedIn) {
+			return (
+				<UserContext.Provider value={{logout: logout, guestInfo: guestInfo, setGuestInfo: setGuestInfo}}>
+					<PageHandler />
+				</UserContext.Provider>
+			)
+		}
+		else if (ready) {
+			return (
+				<UserContext.Provider value={{ login: login, setGuestInfo: setGuestInfo }}>
+					<Login />
+				</UserContext.Provider>
+			)
+		}
+		else {
+			return <Loader />
+		}
 	}
 }
 

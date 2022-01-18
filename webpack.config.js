@@ -7,15 +7,20 @@ const webpack  					= require('webpack');
 module.exports = (env, args) => {
 	
 	return {
-		entry: './src/index.jsx',
+		entry: ['babel-polyfill', './src/index.jsx'],
 		...(options()),
+		target: ['web', 'es5'],
 		module: {
 			rules: [
 				{
 					test: /\.(js|jsx)$/,
 					include: path.join(__dirname, 'src'),
-					exclude: /node_modules/,
-					use: ['babel-loader']
+					use: {
+						loader: 'babel-loader',
+						options: {
+							presets: ['@babel/react']
+						}
+					}
 				},
 				{
 					test: /\.scss$/i,

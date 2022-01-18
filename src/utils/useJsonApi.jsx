@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import fetch from 'cross-fetch'
 
 export default function useJsonApi(path) {
 	const [response, setResponse] 	= useState(null);
