@@ -3,6 +3,7 @@ import PageLayout, { PageHeading, PageSubHeading, PageContent, PageDivider } fro
 import NameJoiner from 'utils/NameJoiner';
 import { Button } from 'utils/Buttons'
 import { Link } from 'react-router-dom';
+import ErrorBoundary from 'utils/ErrorBoundary'
 
 import { UserContext } from '../../index';
 
@@ -14,48 +15,50 @@ export default function Home () {
 	const currentLanguage = document.cookie.split('; ').find(row => row.startsWith('ksweddingviewer_language=')).split('=')[1] || "english"
 
 	return (
-		<PageLayout>
-			<PageHeading value={NameJoiner(context.guestInfo.guests.map(guest => guest.name))} />
-			
-			<PageDivider />
-
-			{ currentLanguage === 'it' && 
-			<>
-				<PageSubHeading>{t('pages.home.passport')}</PageSubHeading>
+		<ErrorBoundary>
+			<PageLayout>
+				<PageHeading value={NameJoiner(context.guestInfo.guests.map(guest => guest.name))} />
 				
-				<PageContent>
-					{t('pages.home.passportmessage')}
-				</PageContent>
-			</> }
-
-			<PageSubHeading>
-				{t('pages.home.subheading')}
-			</PageSubHeading>
-
-			<PageContent>
-				{t('pages.home.maincontent1')}
-				<br />
-				{t('pages.home.maincontent2')}
-				<br />
-				{t('pages.home.maincontent3')}
-				<br />
-				{t('pages.home.maincontent4')}
-			</PageContent>
-
-			{ currentLanguage !== 'it' &&
-			<>
-				<PageHeading value={t('pages.home.gifts')} />
-
 				<PageDivider />
 
+				{ currentLanguage === 'it' && 
+				<>
+					<PageSubHeading>{t('pages.home.passport')}</PageSubHeading>
+					
+					<PageContent>
+						{t('pages.home.passportmessage')}
+					</PageContent>
+				</> }
+
+				<PageSubHeading>
+					{t('pages.home.subheading')}
+				</PageSubHeading>
+
 				<PageContent>
-					{t('pages.home.giftsmessage1')}
+					{t('pages.home.maincontent1')}
 					<br />
-					{t('pages.home.giftsmessage2')}
+					{t('pages.home.maincontent2')}
 					<br />
-					{t('pages.home.giftsmessage3')}
+					{t('pages.home.maincontent3')}
+					<br />
+					{t('pages.home.maincontent4')}
 				</PageContent>
-			</> }
-		</PageLayout>
+
+				{ currentLanguage !== 'it' &&
+				<>
+					<PageHeading value={t('pages.home.gifts')} />
+
+					<PageDivider />
+
+					<PageContent>
+						{t('pages.home.giftsmessage1')}
+						<br />
+						{t('pages.home.giftsmessage2')}
+						<br />
+						{t('pages.home.giftsmessage3')}
+					</PageContent>
+				</> }
+			</PageLayout>
+		</ErrorBoundary> 
 	)
 }
