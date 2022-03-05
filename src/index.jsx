@@ -44,15 +44,16 @@ function App() {
 		}
 	}, [session])
 
-	if (isSafari) {
-		return (
-		<>
-			<h1>Safari Incompatability</h1>
-			<p>Sorry for the inconvinence, but this website isn't compatible with Safari browser. The website does work on Chrome, Firefox and Edge. If you're not able to use one of those, please contact Kelan or Sabrina.</p>
-		</> 
-		)
-	}
-	else {
+	// if (isSafari) {
+	// 	return (
+	// 	<>
+	// 		<h1>Safari Incompatability</h1>
+	// 		<p>Sorry for the inconvinence, but this website isn't compatible with Safari browser. The website does work on Chrome, Firefox and Edge. If you're not able to use one of those, please contact Kelan or Sabrina.</p>
+	// 		<p>Scusate per l'inconveniente, il sito non è compatibile con Safari. Il sito funziona su Chrome, Firefox e Edge. Se non hai accesso a uno di questi browser contatta Kelan o Sabrina.</p>
+	// 	</> 
+	// 	)
+	// }
+	// else {
 		if (ready && isLoggedIn) {
 			return (
 				<UserContext.Provider value={{logout: logout, guestInfo: guestInfo, setGuestInfo: setGuestInfo}}>
@@ -70,7 +71,7 @@ function App() {
 		else {
 			return <Loader />
 		}
-	}
+	// }
 }
 
 ReactDOM.render((
